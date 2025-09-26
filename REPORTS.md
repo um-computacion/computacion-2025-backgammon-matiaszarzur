@@ -6,8 +6,8 @@ Name                     Stmts   Miss  Cover   Missing
 cli/__init__.py              0      0   100%
 cli/cli.py                   0      0   100%
 core/BackgammonGame.py       7      7     0%   1-8
-core/Board.py              112      2    98%   97, 120
-core/Checker.py              7      0   100%
+core/Board.py              112      2    98%   119, 142
+core/Checker.py             13      4    69%   18, 22-24
 core/ColorFicha.py           4      0   100%
 core/Dice.py                40      0   100%
 core/Player.py               0      0   100%
@@ -15,37 +15,13 @@ core/__init__.py             0      0   100%
 pygame_ui/__init__.py        0      0   100%
 pygame_ui/pygame.py          0      0   100%
 ------------------------------------------------------
-TOTAL                      170      9    95%
+TOTAL                      176     13    93%
 
 ```
 ## Pylint Report
 ```text
 ************* Module core.Board
-core/Board.py:9:36: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:10:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:11:38: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:12:37: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:17:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:28:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:39:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:125:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:130:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:134:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:138:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:147:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Board.py:155:0: C0304: Final newline missing (missing-final-newline)
-core/Board.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 core/Board.py:1:0: C0103: Module name "Board" doesn't conform to snake_case naming style (invalid-name)
-core/Board.py:3:0: C0115: Missing class docstring (missing-class-docstring)
-core/Board.py:8:12: W0612: Unused variable 'i' (unused-variable)
-core/Board.py:15:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Board.py:26:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Board.py:37:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Board.py:96:8: R1705: Unnecessary "elif" after "return", remove the leading "el" from "elif" (no-else-return)
-core/Board.py:104:8: R1705: Unnecessary "elif" after "return", remove the leading "el" from "elif" (no-else-return)
-core/Board.py:126:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Board.py:131:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Board.py:135:4: C0116: Missing function or method docstring (missing-function-docstring)
 ************* Module core.BackgammonGame
 core/BackgammonGame.py:10:0: C0301: Line too long (109/100) (line-too-long)
 core/BackgammonGame.py:1:0: C0114: Missing module docstring (missing-module-docstring)
@@ -59,51 +35,21 @@ core/BackgammonGame.py:3:0: W0611: Unused Checker imported from core.Checker (un
 core/BackgammonGame.py:4:0: W0611: Unused ColorFicha imported from core.ColorFicha (unused-import)
 core/BackgammonGame.py:5:0: W0611: Unused import random (unused-import)
 ************* Module core.ColorFicha
-core/ColorFicha.py:5:0: C0304: Final newline missing (missing-final-newline)
-core/ColorFicha.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 core/ColorFicha.py:1:0: C0103: Module name "ColorFicha" doesn't conform to snake_case naming style (invalid-name)
-core/ColorFicha.py:3:0: C0115: Missing class docstring (missing-class-docstring)
 ************* Module core.Checker
-core/Checker.py:5:28: C0303: Trailing whitespace (trailing-whitespace)
-core/Checker.py:6:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Checker.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 core/Checker.py:1:0: C0103: Module name "Checker" doesn't conform to snake_case naming style (invalid-name)
-core/Checker.py:3:0: C0115: Missing class docstring (missing-class-docstring)
-core/Checker.py:8:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Checker.py:3:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 ************* Module core.Dice
-core/Dice.py:6:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:10:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:17:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:21:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:27:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:29:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:32:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:35:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:38:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:46:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:55:0: C0304: Final newline missing (missing-final-newline)
-core/Dice.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 core/Dice.py:1:0: C0103: Module name "Dice" doesn't conform to snake_case naming style (invalid-name)
-core/Dice.py:3:0: C0115: Missing class docstring (missing-class-docstring)
-core/Dice.py:8:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Dice.py:18:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Dice.py:30:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Dice.py:33:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Dice.py:36:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Dice.py:39:4: C0116: Missing function or method docstring (missing-function-docstring)
-core/Dice.py:42:8: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
-core/Dice.py:47:4: C0116: Missing function or method docstring (missing-function-docstring)
 ************* Module core.Player
 core/Player.py:1:0: C0103: Module name "Player" doesn't conform to snake_case naming style (invalid-name)
 ************* Module test.testBoard
-test/testBoard.py:99:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoard.py:103:0: C0301: Line too long (106/100) (line-too-long)
-test/testBoard.py:104:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoard.py:108:0: C0301: Line too long (106/100) (line-too-long)
-test/testBoard.py:109:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoard.py:114:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoard.py:120:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoard.py:102:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoard.py:106:0: C0301: Line too long (106/100) (line-too-long)
+test/testBoard.py:107:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoard.py:111:0: C0301: Line too long (106/100) (line-too-long)
+test/testBoard.py:112:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoard.py:117:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoard.py:123:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoard.py:124:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoard.py:144:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoard.py:150:0: C0303: Trailing whitespace (trailing-whitespace)
@@ -147,33 +93,30 @@ test/testBoard.py:285:0: C0301: Line too long (106/100) (line-too-long)
 test/testBoard.py:286:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoard.py:291:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoard.py:295:0: C0304: Final newline missing (missing-final-newline)
-test/testBoard.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 test/testBoard.py:1:0: C0103: Module name "testBoard" doesn't conform to snake_case naming style (invalid-name)
-test/testBoard.py:6:0: C0115: Missing class docstring (missing-class-docstring)
-test/testBoard.py:13:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:17:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:22:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:28:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:8:0: C0115: Missing class docstring (missing-class-docstring)
+test/testBoard.py:16:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:20:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:25:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:31:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:36:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:42:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:47:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:34:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:39:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:45:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:50:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:55:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:61:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:65:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:69:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:73:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:77:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:82:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:86:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:92:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:100:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:105:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:110:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:115:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:121:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:122:46: W0612: Unused variable 'context' (unused-variable)
+test/testBoard.py:53:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:58:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:64:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:68:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:72:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:76:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:80:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:85:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:89:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:95:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:103:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:108:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:113:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testBoard.py:118:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:125:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:140:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:151:4: C0116: Missing function or method docstring (missing-function-docstring)
@@ -190,7 +133,7 @@ test/testBoard.py:273:4: C0116: Missing function or method docstring (missing-fu
 test/testBoard.py:282:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:287:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:292:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:6:0: R0904: Too many public methods (40/20) (too-many-public-methods)
+test/testBoard.py:8:0: R0904: Too many public methods (39/20) (too-many-public-methods)
 ************* Module test.testPygame
 test/testPygame.py:1:0: C0103: Module name "testPygame" doesn't conform to snake_case naming style (invalid-name)
 ************* Module test.testChecker
@@ -279,7 +222,7 @@ test/testTipoFicha.py:48:4: C0116: Missing function or method docstring (missing
 test/testCli.py:1:0: C0103: Module name "testCli" doesn't conform to snake_case naming style (invalid-name)
 
 -----------------------------------
-Your code has been rated at 6.26/10
+Your code has been rated at 7.15/10
 
 
 ```
