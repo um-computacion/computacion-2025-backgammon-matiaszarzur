@@ -47,3 +47,9 @@ Se corrigio varias veces el ci.yml para que actulice automaticamente los budges 
 ## [16-09-2025] V 0.1.1
 Se corrigen y se pulen algunos puntos flojos del codigo para mejorar su valoracion, intentando que no afecte al coverage ni a la logica.
 Se agregaron los docstrings solicitados por el ci.yml
+
+## [26-09-2025] V 0.1.2
+Se corrige la clase Board con los principios SOLID vistos en clase. Se creo una nueva clase "BoardInitilizer".
+    -Responsabilidad única: Solo maneja la estructura y operaciones del tablero (Board)
+    -Se eliminó inicializar_tablero() que era responsabilidad de configuración (Ahora en BoardInitilizer)
+Se crearon los tests para la nueva clase y se eliminaron los de la clase board que no se usan.

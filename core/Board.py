@@ -110,7 +110,7 @@ class Board:
         """Agregar una ficha al contenedor correspondiente según su color."""
         if ficha.color == ColorFicha.BLANCA:
             self.__contenedor_blancas.append(ficha)
-        if ficha.color == ColorFicha.NEGRA:
+        elif ficha.color == ColorFicha.NEGRA:
             self.__contenedor_negras.append(ficha)
 
     def quitar_ficha_contenedor(self, color):
@@ -155,26 +155,3 @@ class Board:
         """Limpiar ambos contenedores de fichas."""
         self.__contenedor_blancas = []
         self.__contenedor_negras = []
-
-    def inicializar_tablero(self):
-        """Configurar el tablero con la disposición inicial de fichas."""
-        self.resetear_tablero()
-        self.limpiar_contenedores()
-
-        for _ in range(2):
-            self.agregar_ficha(0, Checker(ColorFicha.NEGRA))
-        for _ in range(5):
-            self.agregar_ficha(11, Checker(ColorFicha.NEGRA))
-        for _ in range(3):
-            self.agregar_ficha(16, Checker(ColorFicha.NEGRA))
-        for _ in range(5):
-            self.agregar_ficha(18, Checker(ColorFicha.NEGRA))
-
-        for _ in range(2):
-            self.agregar_ficha(23, Checker(ColorFicha.BLANCA))
-        for _ in range(5):
-            self.agregar_ficha(12, Checker(ColorFicha.BLANCA))
-        for _ in range(3):
-            self.agregar_ficha(7, Checker(ColorFicha.BLANCA))
-        for _ in range(5):
-            self.agregar_ficha(5, Checker(ColorFicha.BLANCA))
