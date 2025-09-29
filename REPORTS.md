@@ -6,9 +6,9 @@ Name                       Stmts   Miss  Cover   Missing
 cli/__init__.py                0      0   100%
 cli/cli.py                     0      0   100%
 core/BackgammonGame.py         7      7     0%   1-8
-core/Board.py                 93      6    94%   119, 138-142
+core/Board.py                 93      3    97%   139-141
 core/BoardInitializer.py      23      0   100%
-core/Checker.py               13      4    69%   18, 22-24
+core/Checker.py               13      0   100%
 core/ColorFicha.py             4      0   100%
 core/Dice.py                  41      0   100%
 core/DiceRoller.py             5      0   100%
@@ -17,7 +17,7 @@ core/__init__.py               0      0   100%
 pygame_ui/__init__.py          0      0   100%
 pygame_ui/pygame.py            0      0   100%
 --------------------------------------------------------
-TOTAL                        186     17    91%
+TOTAL                        186     10    95%
 
 ```
 ## Pylint Report
@@ -77,12 +77,20 @@ test/testPygame.py:1:0: C0103: Module name "testPygame" doesn't conform to snake
 ************* Module test.testChecker
 test/testChecker.py:17:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testChecker.py:28:64: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:29:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:34:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:41:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:44:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:47:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:50:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testChecker.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 test/testChecker.py:1:0: C0103: Module name "testChecker" doesn't conform to snake_case naming style (invalid-name)
 test/testChecker.py:4:0: W0404: Reimport 'ColorFicha' (imported line 3) (reimported)
 test/testChecker.py:6:0: C0115: Missing class docstring (missing-class-docstring)
 test/testChecker.py:11:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testChecker.py:14:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testChecker.py:46:25: C0121: Comparison 'ficha == None' should be 'ficha is None' (singleton-comparison)
+test/testChecker.py:52:25: C1803: "ficha == []" can be simplified to "not ficha", if it is strictly a sequence, as an empty list is falsey (use-implicit-booleaness-not-comparison)
 test/testChecker.py:4:0: C0411: standard import "test.testTipoFicha.ColorFicha" should be placed before first party imports "core.Checker.Checker", "core.ColorFicha.ColorFicha"  (wrong-import-order)
 ************* Module test.testDice
 test/testDice.py:5:0: C0301: Line too long (196/100) (line-too-long)
@@ -180,7 +188,11 @@ test/testBoard.py:167:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoard.py:171:0: C0301: Line too long (106/100) (line-too-long)
 test/testBoard.py:172:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoard.py:177:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoard.py:181:0: C0304: Final newline missing (missing-final-newline)
+test/testBoard.py:182:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoard.py:203:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoard.py:212:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoard.py:216:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoard.py:219:0: C0304: Final newline missing (missing-final-newline)
 test/testBoard.py:1:0: C0103: Module name "testBoard" doesn't conform to snake_case naming style (invalid-name)
 test/testBoard.py:8:0: C0115: Missing class docstring (missing-class-docstring)
 test/testBoard.py:16:4: C0116: Missing function or method docstring (missing-function-docstring)
@@ -213,7 +225,7 @@ test/testBoard.py:159:4: C0116: Missing function or method docstring (missing-fu
 test/testBoard.py:168:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:173:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:178:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testBoard.py:8:0: R0904: Too many public methods (31/20) (too-many-public-methods)
+test/testBoard.py:8:0: R0904: Too many public methods (34/20) (too-many-public-methods)
 ************* Module test.testDiceRoller
 test/testDiceRoller.py:13:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testDiceRoller.py:22:0: C0303: Trailing whitespace (trailing-whitespace)
@@ -239,7 +251,7 @@ test/testDiceRoller.py:108:48: W0613: Unused argument 'mock_randint' (unused-arg
 test/testPlayer.py:1:0: C0103: Module name "testPlayer" doesn't conform to snake_case naming style (invalid-name)
 
 -----------------------------------
-Your code has been rated at 7.33/10
+Your code has been rated at 7.29/10
 
 
 ```
