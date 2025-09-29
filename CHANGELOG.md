@@ -53,3 +53,4 @@ Se corrige la clase Board con los principios SOLID vistos en clase. Se creo una 
     -Responsabilidad única: Solo maneja la estructura y operaciones del tablero (Board)
     -Se eliminó inicializar_tablero() que era responsabilidad de configuración (Ahora en BoardInitilizer)
 Se crearon los tests para la nueva clase y se eliminaron los de la clase board que no se usan.
+## [28-09-2025] V 0.1.3
