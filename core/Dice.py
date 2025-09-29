@@ -1,63 +1,101 @@
-"""Clase que representa los dados del Backgammon."""
-import random
+"""Clase para manejo de dados en backgammon."""
+from core.DiceRoller import DiceRoller
+
 
 class Dice:
-    """Clase que representa los dados del Backgammon."""
+    """Maneja dados y movimientos disponibles en backgammon."""
+    
     def __init__(self):
-        """Inicializar dados sin valor."""
-        self.__last_roll = None
-
+        """Inicializar dados sin lanzamiento."""
+        self.__available_moves = []
+        self.__last_raw_roll = None
+    
     @property
     def last_roll(self):
-        """Obtener el último lanzamiento de dados."""
-        return self.__last_roll
-
-    @last_roll.setter
-    def last_roll(self, value):
-        """Establecer el último lanzamiento de dados."""
-        if isinstance(value, tuple):
-            self.__last_roll = value
-        else:
-            raise ValueError("last_roll debe ser una tupla")
-
-    def roll(self):
-        """Lanzar los dados y obtener el resultado."""
-        dice_0 = random.randint(1, 6)
-        dice_1 = random.randint(1, 6)
+        """Obtener los movimientos disponibles del último lanzamiento."""
+        return tuple(self.__available_moves)
+    
+    @property
+    def last_raw_roll(self):
+        """Obtener los valores originales del último lanzamiento."""
+        return self.__last_raw_roll
+    
+    @staticmethod
+    def _process_roll(dice_values):
+        """Aplicar reglas de backgammon a un lanzamiento.
+        
+        Args:
+            dice_values (tuple): Valores de los dos dados
+            
+        Returns:
+            tuple: Movimientos disponibles según reglas de backgammon
+        """
+        dice_0, dice_1 = dice_values
         if dice_0 == dice_1:
             # Dobles: 4 movimientos del mismo valor
-            self.__last_roll = (dice_0, dice_0, dice_0, dice_0)
-        else:
-            self.__last_roll = (dice_0, dice_1)
-        return self.__last_roll
-
+            return (dice_0, dice_0, dice_0, dice_0)
+        return (dice_0, dice_1)
+    
+    @staticmethod
+    def _is_double_roll(moves):
+        """Verificar si los movimientos corresponden a un doble.
+        
+        Args:
+            moves (tuple): Movimientos disponibles
+            
+        Returns:
+            bool: True si es doble, False si no
+        """
+        return len(moves) == 4 and len(set(moves)) == 1
+    
+    def roll(self):
+        """Lanzar dados y configurar movimientos disponibles.
+        
+        Returns:
+            tuple: Valores originales de los dados
+        """
+        # Generar números aleatorios
+        self.__last_raw_roll = DiceRoller.roll_two_dice()
+        
+        # Aplicar reglas de backgammon
+        moves = self._process_roll(self.__last_raw_roll)
+        
+        # Configurar movimientos disponibles
+        self.__available_moves = list(moves)
+        
+        return self.__last_raw_roll
+    
     def is_double(self):
         """Verificar si el último lanzamiento fue un doble."""
-        return self.__last_roll is not None and len(self.__last_roll) == 4
-
+        return self._is_double_roll(tuple(self.__available_moves))
+    
     def get_moves_remaining(self):
-        """Obtener los movimientos restantes basados en el último lanzamiento."""
-        return len(self.__last_roll) if self.__last_roll else 0
-
-    def clear_roll(self):
-        """Limpiar el último lanzamiento."""
-        self.__last_roll = None
-
-    def get_roll_values(self):
-        """Obtener los valores del último lanzamiento."""
-        if not self.__last_roll:
-            return None
-        if self.is_double():
-            return (self.__last_roll[0], self.__last_roll[0])
-        return (self.__last_roll[0], self.__last_roll[1])
-
+        """Obtener cantidad de movimientos restantes."""
+        return len(self.__available_moves)
+    
     def use_move(self, move):
-        """Usar un movimiento basado en el último lanzamiento."""
-        if not self.__last_roll:
-            return False
-        if move in self.__last_roll:
-            last_roll_list = list(self.__last_roll)
-            last_roll_list.remove(move)  # elimina solo la primera ocurrencia
-            self.__last_roll = tuple(last_roll_list)
+        """Usar un movimiento si está disponible.
+        
+        Args:
+            move (int): Valor del movimiento a usar
+            
+        Returns:
+            bool: True si se pudo usar, False si no
+        """
+        if move in self.__available_moves:
+            self.__available_moves.remove(move)
             return True
         return False
+    
+    def clear_roll(self):
+        """Limpiar el lanzamiento actual."""
+        self.__available_moves = []
+        self.__last_raw_roll = None
+    
+    def get_roll_values(self):
+        """Obtener los valores únicos del último lanzamiento."""
+        return self.__last_raw_roll
+    
+    def has_moves_available(self):
+        """Verificar si quedan movimientos disponibles."""
+        return len(self.__available_moves) > 0
