@@ -309,3 +309,44 @@ Estos tests te ayudarán a alcanzar una cobertura mucho más completa de tu clas
 Se tomaron los test sugeridos por la IA para mejorar el coverage de la clase
 # Archivos
 testDice.py
+
+# Modelo / herramienta usada
+Claude
+# Prompt
+Necesito que me hagas un test para el siguiente metodo
+    def quitar_ficha_contenedor(self, color):
+        """Quitar una ficha del contenedor según el color."""
+        if color == ColorFicha.BLANCA and len(self.__contenedor_blancas) > 0:
+            return self.__contenedor_blancas.pop()
+        if color == ColorFicha.NEGRA and len(self.__contenedor_negras) > 0:
+            return self.__contenedor_negras.pop()
+        return None
+# Respuesta
+def test_quitar_ficha_contenedor_blanca_exitoso(self):
+    """Test quitar ficha blanca cuando hay fichas en el contenedor."""
+    # Agregar una ficha blanca al contenedor
+    ficha_blanca = Checker(ColorFicha.BLANCA)
+    self.tablero.agregar_ficha_contenedor(ficha_blanca)
+    
+    # Quitar la ficha blanca
+    ficha_quitada = self.tablero.quitar_ficha_contenedor(ColorFicha.BLANCA)
+    
+    self.assertEqual(ficha_quitada.color, ColorFicha.BLANCA)
+    self.assertEqual(self.tablero.contar_fichas_contenedor(ColorFicha.BLANCA), 0)
+
+def test_quitar_ficha_contenedor_negra_exitoso(self):
+    """Test quitar ficha negra cuando hay fichas en el contenedor."""
+    # Agregar una ficha negra al contenedor
+    ficha_negra = Checker(ColorFicha.NEGRA)
+    self.tablero.agregar_ficha_contenedor(ficha_negra)
+    
+    # Quitar la ficha negra
+    ficha_quitada = self.tablero.quitar_ficha_contenedor(ColorFicha.NEGRA)
+    
+    self.assertEqual(ficha_quitada.color, ColorFicha.NEGRA)
+    self.assertEqual(self.tablero.contar_fichas_contenedor(ColorFicha.NEGRA), 0)
+# Salida
+Se utilizaron estos test para mejorar el coverage
+
+# Archivos
+testBoad.py

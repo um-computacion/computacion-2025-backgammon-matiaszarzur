@@ -179,3 +179,41 @@ class TestBoard(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             self.tablero.contenedor_negras = 12345
         self.assertEqual(str(context.exception), "El nuevo contenedor debe ser una lista.")
+        
+    def test_quitar_ficha_contenedor_blanca_exitoso(self):
+        """Test quitar ficha blanca cuando hay fichas en el contenedor."""
+        # Agregar una ficha blanca al contenedor
+        ficha_blanca = Checker(ColorFicha.BLANCA)
+        self.tablero.agregar_ficha_contenedor(ficha_blanca)
+
+        # Quitar la ficha blanca
+        ficha_quitada = self.tablero.quitar_ficha_contenedor(ColorFicha.BLANCA)
+
+        self.assertEqual(ficha_quitada.color, ColorFicha.BLANCA)
+        self.assertEqual(self.tablero.contar_fichas_contenedor(ColorFicha.BLANCA), 0)
+
+    def test_quitar_ficha_contenedor_negra_exitoso(self):
+        """Test quitar ficha negra cuando hay fichas en el contenedor."""
+        # Agregar una ficha negra al contenedor
+        ficha_negra = Checker(ColorFicha.NEGRA)
+        self.tablero.agregar_ficha_contenedor(ficha_negra)
+
+        # Quitar la ficha negra
+        ficha_quitada = self.tablero.quitar_ficha_contenedor(ColorFicha.NEGRA)
+    
+        self.assertEqual(ficha_quitada.color, ColorFicha.NEGRA)
+        self.assertEqual(self.tablero.contar_fichas_contenedor(ColorFicha.NEGRA), 0)
+
+    def test_limpiar_punto_invalido(self):
+        """Test limpiar_punto con punto fuera del rango válido."""
+        # Test con punto negativo
+        result = self.tablero.limpiar_punto(-1)
+        self.assertEqual(result, [])
+    
+        # Test con punto mayor a 23
+        result = self.tablero.limpiar_punto(25)
+        self.assertEqual(result, [])
+    
+        # Test con punto muy grande
+        result = self.tablero.limpiar_punto(100)
+        self.assertEqual(result, [])
