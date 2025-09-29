@@ -54,3 +54,11 @@ Se corrige la clase Board con los principios SOLID vistos en clase. Se creo una 
     -Se eliminó inicializar_tablero() que era responsabilidad de configuración (Ahora en BoardInitilizer)
 Se crearon los tests para la nueva clase y se eliminaron los de la clase board que no se usan.
 ## [28-09-2025] V 0.1.3
+Se corrige la clase Dice con los principios SOLID vistos en clase. Se creó una nueva clase "DiceRoller".
+    - Responsabilidad única: Solo maneja dados y movimientos de backgammon (Dice)
+    - Se separó la generación aleatoria en DiceRoller que es responsabilidad de generar números
+    - Se eliminó el setter público de last_roll mejorando el encapsulamiento
+    - Se extrajeron las reglas como métodos estáticos dentro de Dice (_process_roll, _is_double_roll)
+    - Se agregó last_raw_roll para mantener los valores originales del lanzamiento
+Se crearon los tests para la nueva estructura y se actualizaron todos los mocks para usar DiceRoller.
+Se crearon los test para la clase DiceRoller.

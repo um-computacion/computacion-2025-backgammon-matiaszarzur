@@ -9,7 +9,6 @@ from core.ColorFicha import ColorFicha
 
 class BoardInitializer:
     """Clase responsable de inicializar el tablero con diferentes configuraciones."""
-    
     @staticmethod
     def inicializar_estandar(board):
         """Configurar el tablero con la disposición estándar de backgammon.
@@ -19,7 +18,6 @@ class BoardInitializer:
         """
         board.resetear_tablero()
         board.limpiar_contenedores()
-        
         # Fichas negras
         for _ in range(2):
             board.agregar_ficha(0, Checker(ColorFicha.NEGRA))
@@ -29,7 +27,6 @@ class BoardInitializer:
             board.agregar_ficha(16, Checker(ColorFicha.NEGRA))
         for _ in range(5):
             board.agregar_ficha(18, Checker(ColorFicha.NEGRA))
-        
         # Fichas blancas
         for _ in range(2):
             board.agregar_ficha(23, Checker(ColorFicha.BLANCA))
