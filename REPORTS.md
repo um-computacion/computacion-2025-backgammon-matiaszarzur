@@ -10,20 +10,27 @@ core/Board.py                 93      6    94%   119, 138-142
 core/BoardInitializer.py      23      0   100%
 core/Checker.py               13      4    69%   18, 22-24
 core/ColorFicha.py             4      0   100%
-core/Dice.py                  40      0   100%
+core/Dice.py                  41      0   100%
+core/DiceRoller.py             5      0   100%
 core/Player.py                 0      0   100%
 core/__init__.py               0      0   100%
 pygame_ui/__init__.py          0      0   100%
 pygame_ui/pygame.py            0      0   100%
 --------------------------------------------------------
-TOTAL                        180     17    91%
+TOTAL                        186     17    91%
 
 ```
 ## Pylint Report
 ```text
 ************* Module core.ColorFicha
 core/ColorFicha.py:1:0: C0103: Module name "ColorFicha" doesn't conform to snake_case naming style (invalid-name)
+************* Module core.DiceRoller
+core/DiceRoller.py:1:0: C0103: Module name "DiceRoller" doesn't conform to snake_case naming style (invalid-name)
+core/DiceRoller.py:5:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 ************* Module core.Dice
+core/Dice.py:58:0: C0303: Trailing whitespace (trailing-whitespace)
+core/Dice.py:61:0: C0303: Trailing whitespace (trailing-whitespace)
+core/Dice.py:64:0: C0303: Trailing whitespace (trailing-whitespace)
 core/Dice.py:1:0: C0103: Module name "Dice" doesn't conform to snake_case naming style (invalid-name)
 ************* Module core.BackgammonGame
 core/BackgammonGame.py:10:0: C0301: Line too long (109/100) (line-too-long)
@@ -38,9 +45,6 @@ core/BackgammonGame.py:3:0: W0611: Unused Checker imported from core.Checker (un
 core/BackgammonGame.py:4:0: W0611: Unused ColorFicha imported from core.ColorFicha (unused-import)
 core/BackgammonGame.py:5:0: W0611: Unused import random (unused-import)
 ************* Module core.BoardInitializer
-core/BoardInitializer.py:12:0: C0303: Trailing whitespace (trailing-whitespace)
-core/BoardInitializer.py:22:0: C0303: Trailing whitespace (trailing-whitespace)
-core/BoardInitializer.py:32:0: C0303: Trailing whitespace (trailing-whitespace)
 core/BoardInitializer.py:1:0: C0103: Module name "BoardInitializer" doesn't conform to snake_case naming style (invalid-name)
 core/BoardInitializer.py:10:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 ************* Module core.Board
@@ -84,52 +88,49 @@ test/testChecker.py:4:0: C0411: standard import "test.testTipoFicha.ColorFicha" 
 test/testDice.py:5:0: C0301: Line too long (196/100) (line-too-long)
 test/testDice.py:6:0: C0301: Line too long (127/100) (line-too-long)
 test/testDice.py:15:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:80:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:84:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:108:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:125:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:132:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:160:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:85:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:89:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:127:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:135:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testDice.py:166:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testDice.py:172:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:181:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:187:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:197:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:201:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:205:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:209:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:219:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:223:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:232:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:236:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:239:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:242:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:245:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:252:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:257:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:268:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDice.py:300:0: C0304: Final newline missing (missing-final-newline)
+test/testDice.py:178:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:188:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:194:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:207:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:210:0: C0301: Line too long (103/100) (line-too-long)
+test/testDice.py:211:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:220:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:225:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:228:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:231:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:234:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:241:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:247:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:258:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:298:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:302:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDice.py:305:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testDice.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 test/testDice.py:1:0: C0103: Module name "testDice" doesn't conform to snake_case naming style (invalid-name)
 test/testDice.py:8:0: C0115: Missing class docstring (missing-class-docstring)
 test/testDice.py:17:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:26:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:38:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:46:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:67:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:73:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:85:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:95:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:103:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:109:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:112:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testDice.py:27:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testDice.py:40:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testDice.py:48:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testDice.py:71:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testDice.py:78:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testDice.py:90:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testDice.py:100:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testDice.py:108:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testDice.py:111:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testDice.py:116:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:120:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:126:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testDice.py:275:41: W0613: Unused argument 'randint_patched' (unused-argument)
-test/testDice.py:285:39: W0613: Unused argument 'randint_patched' (unused-argument)
-test/testDice.py:294:39: W0613: Unused argument 'randint_patched' (unused-argument)
-test/testDice.py:8:0: R0904: Too many public methods (28/20) (too-many-public-methods)
+test/testDice.py:121:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testDice.py:128:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testDice.py:265:41: W0613: Unused argument 'mock_roll' (unused-argument)
+test/testDice.py:275:39: W0613: Unused argument 'mock_roll' (unused-argument)
+test/testDice.py:285:39: W0613: Unused argument 'mock_roll' (unused-argument)
+test/testDice.py:8:0: R0904: Too many public methods (27/20) (too-many-public-methods)
 test/testDice.py:2:0: C0411: standard import "unittest.TestCase" should be placed before first party import "core.Dice.Dice"  (wrong-import-order)
 test/testDice.py:3:0: C0411: standard import "unittest.mock.patch" should be placed before first party import "core.Dice.Dice"  (wrong-import-order)
 ************* Module test.testCli
@@ -213,11 +214,32 @@ test/testBoard.py:168:4: C0116: Missing function or method docstring (missing-fu
 test/testBoard.py:173:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:178:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:8:0: R0904: Too many public methods (31/20) (too-many-public-methods)
+************* Module test.testDiceRoller
+test/testDiceRoller.py:13:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:22:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:31:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:39:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:48:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:55:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:64:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:67:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:78:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:80:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:89:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:96:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:104:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:107:48: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:111:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:116:0: C0304: Final newline missing (missing-final-newline)
+test/testDiceRoller.py:1:0: C0103: Module name "testDiceRoller" doesn't conform to snake_case naming style (invalid-name)
+test/testDiceRoller.py:7:0: C0115: Missing class docstring (missing-class-docstring)
+test/testDiceRoller.py:101:48: W0613: Unused argument 'mock_randint' (unused-argument)
+test/testDiceRoller.py:108:48: W0613: Unused argument 'mock_randint' (unused-argument)
 ************* Module test.testPlayer
 test/testPlayer.py:1:0: C0103: Module name "testPlayer" doesn't conform to snake_case naming style (invalid-name)
 
 -----------------------------------
-Your code has been rated at 7.29/10
+Your code has been rated at 7.33/10
 
 
 ```
