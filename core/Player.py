@@ -9,7 +9,7 @@ class Player:
         if not nombre or not nombre.strip():
             raise ValueError("El nombre del jugador no puede estar vacío")
         if not isinstance(color, ColorFicha):
-            raise TypeError("El color debe ser Blanaca o Negra")
+            raise TypeError("El color debe ser Blanca o Negra")
             
         self.__nombre = nombre.strip()
         self.__color = color
