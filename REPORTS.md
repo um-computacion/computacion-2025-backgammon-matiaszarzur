@@ -12,12 +12,12 @@ core/Checker.py               13      0   100%
 core/ColorFicha.py             4      0   100%
 core/Dice.py                  41      0   100%
 core/DiceRoller.py             5      0   100%
-core/Player.py                 0      0   100%
+core/Player.py                23      0   100%
 core/__init__.py               0      0   100%
 pygame_ui/__init__.py          0      0   100%
 pygame_ui/pygame.py            0      0   100%
 --------------------------------------------------------
-TOTAL                        186     10    95%
+TOTAL                        209     10    95%
 
 ```
 ## Pylint Report
@@ -51,6 +51,7 @@ core/BoardInitializer.py:10:0: R0903: Too few public methods (1/2) (too-few-publ
 core/Board.py:1:0: C0103: Module name "Board" doesn't conform to snake_case naming style (invalid-name)
 core/Board.py:6:0: W0611: Unused Checker imported from core.Checker (unused-import)
 ************* Module core.Player
+core/Player.py:13:0: C0303: Trailing whitespace (trailing-whitespace)
 core/Player.py:1:0: C0103: Module name "Player" doesn't conform to snake_case naming style (invalid-name)
 ************* Module core.Checker
 core/Checker.py:1:0: C0103: Module name "Checker" doesn't conform to snake_case naming style (invalid-name)
@@ -248,10 +249,25 @@ test/testDiceRoller.py:7:0: C0115: Missing class docstring (missing-class-docstr
 test/testDiceRoller.py:101:48: W0613: Unused argument 'mock_randint' (unused-argument)
 test/testDiceRoller.py:108:48: W0613: Unused argument 'mock_randint' (unused-argument)
 ************* Module test.testPlayer
+test/testPlayer.py:12:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:19:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:26:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:33:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:40:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:67:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:74:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:84:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:91:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:98:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:104:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:113:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:116:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testPlayer.py:122:0: C0304: Final newline missing (missing-final-newline)
 test/testPlayer.py:1:0: C0103: Module name "testPlayer" doesn't conform to snake_case naming style (invalid-name)
+test/testPlayer.py:7:0: C0115: Missing class docstring (missing-class-docstring)
 
 -----------------------------------
-Your code has been rated at 7.29/10
+Your code has been rated at 7.40/10
 
 
 ```
