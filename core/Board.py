@@ -3,7 +3,6 @@
 Este módulo contiene la clase Board que representa el tablero de backgammon
 con sus 24 puntos y los contenedores para fichas capturadas.
 """
-from core.Checker import Checker
 from core.ColorFicha import ColorFicha
 
 
