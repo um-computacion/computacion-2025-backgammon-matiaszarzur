@@ -5,8 +5,8 @@ Name                       Stmts   Miss  Cover   Missing
 --------------------------------------------------------
 cli/__init__.py                0      0   100%
 cli/cli.py                     0      0   100%
-core/BackgammonGame.py         7      7     0%   1-8
-core/Board.py                 93      3    97%   139-141
+core/BackgammonGame.py        63     63     0%   2-120
+core/Board.py                 92      3    97%   138-140
 core/BoardInitializer.py      23      0   100%
 core/Checker.py               13      0   100%
 core/ColorFicha.py             4      0   100%
@@ -17,7 +17,7 @@ core/__init__.py               0      0   100%
 pygame_ui/__init__.py          0      0   100%
 pygame_ui/pygame.py            0      0   100%
 --------------------------------------------------------
-TOTAL                        209     10    95%
+TOTAL                        264     66    75%
 
 ```
 ## Pylint Report
@@ -33,23 +33,29 @@ core/Dice.py:61:0: C0303: Trailing whitespace (trailing-whitespace)
 core/Dice.py:64:0: C0303: Trailing whitespace (trailing-whitespace)
 core/Dice.py:1:0: C0103: Module name "Dice" doesn't conform to snake_case naming style (invalid-name)
 ************* Module core.BackgammonGame
-core/BackgammonGame.py:10:0: C0301: Line too long (109/100) (line-too-long)
-core/BackgammonGame.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+core/BackgammonGame.py:11:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:21:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:27:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:32:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:37:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:42:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:47:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:52:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:57:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:62:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:70:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:84:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:86:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:97:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:100:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:109:0: C0303: Trailing whitespace (trailing-whitespace)
+core/BackgammonGame.py:112:0: C0303: Trailing whitespace (trailing-whitespace)
 core/BackgammonGame.py:1:0: C0103: Module name "BackgammonGame" doesn't conform to snake_case naming style (invalid-name)
-core/BackgammonGame.py:7:0: C0115: Missing class docstring (missing-class-docstring)
-core/BackgammonGame.py:7:0: R0903: Too few public methods (0/2) (too-few-public-methods)
-core/BackgammonGame.py:5:0: C0411: standard import "random" should be placed before first party imports "core.Board.Board", "core.Dice.Dice", "core.Checker.Checker", "core.ColorFicha.ColorFicha"  (wrong-import-order)
-core/BackgammonGame.py:1:0: W0611: Unused Board imported from core.Board (unused-import)
-core/BackgammonGame.py:2:0: W0611: Unused Dice imported from core.Dice (unused-import)
-core/BackgammonGame.py:3:0: W0611: Unused Checker imported from core.Checker (unused-import)
-core/BackgammonGame.py:4:0: W0611: Unused ColorFicha imported from core.ColorFicha (unused-import)
-core/BackgammonGame.py:5:0: W0611: Unused import random (unused-import)
 ************* Module core.BoardInitializer
 core/BoardInitializer.py:1:0: C0103: Module name "BoardInitializer" doesn't conform to snake_case naming style (invalid-name)
 core/BoardInitializer.py:10:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 ************* Module core.Board
 core/Board.py:1:0: C0103: Module name "Board" doesn't conform to snake_case naming style (invalid-name)
-core/Board.py:6:0: W0611: Unused Checker imported from core.Checker (unused-import)
 ************* Module core.Player
 core/Player.py:13:0: C0303: Trailing whitespace (trailing-whitespace)
 core/Player.py:1:0: C0103: Module name "Player" doesn't conform to snake_case naming style (invalid-name)
@@ -267,7 +273,7 @@ test/testPlayer.py:1:0: C0103: Module name "testPlayer" doesn't conform to snake
 test/testPlayer.py:7:0: C0115: Missing class docstring (missing-class-docstring)
 
 -----------------------------------
-Your code has been rated at 7.40/10
+Your code has been rated at 7.47/10
 
 
 ```
