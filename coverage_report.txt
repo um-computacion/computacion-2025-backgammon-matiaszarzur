@@ -2,7 +2,7 @@ Name                       Stmts   Miss  Cover   Missing
 --------------------------------------------------------
 cli/__init__.py                0      0   100%
 cli/cli.py                     0      0   100%
-core/BackgammonGame.py        63     63     0%   2-120
+core/BackgammonGame.py        63      0   100%
 core/Board.py                 92      3    97%   138-140
 core/BoardInitializer.py      23      0   100%
 core/Checker.py               13      0   100%
@@ -14,4 +14,4 @@ core/__init__.py               0      0   100%
 pygame_ui/__init__.py          0      0   100%
 pygame_ui/pygame.py            0      0   100%
 --------------------------------------------------------
-TOTAL                        264     66    75%
+TOTAL                        264      3    99%
