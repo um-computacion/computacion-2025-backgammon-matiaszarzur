@@ -54,7 +54,40 @@ test/testTipoFicha.py:40:4: C0116: Missing function or method docstring (missing
 test/testTipoFicha.py:44:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testTipoFicha.py:48:4: C0116: Missing function or method docstring (missing-function-docstring)
 ************* Module test.testBackgammonGame
+test/testBackgammonGame.py:39:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:42:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:58:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:66:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:73:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:76:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:82:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:86:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:93:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:97:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:105:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:112:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:115:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:122:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:124:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:131:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:134:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:140:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:143:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:145:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:148:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:159:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:161:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:169:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:175:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:182:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:185:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:187:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:189:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:196:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:201:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBackgammonGame.py:1:0: C0103: Module name "testBackgammonGame" doesn't conform to snake_case naming style (invalid-name)
+test/testBackgammonGame.py:11:0: C0115: Missing class docstring (missing-class-docstring)
+test/testBackgammonGame.py:54:37: W0613: Unused argument 'mock_roll' (unused-argument)
 ************* Module test.testPygame
 test/testPygame.py:1:0: C0103: Module name "testPygame" doesn't conform to snake_case naming style (invalid-name)
 ************* Module test.testChecker
@@ -249,5 +282,5 @@ test/testPlayer.py:1:0: C0103: Module name "testPlayer" doesn't conform to snake
 test/testPlayer.py:7:0: C0115: Missing class docstring (missing-class-docstring)
 
 -----------------------------------
-Your code has been rated at 7.47/10
+Your code has been rated at 7.45/10
 
