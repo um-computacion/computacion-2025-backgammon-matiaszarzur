@@ -9,9 +9,10 @@ core/Checker.py               13      0   100%
 core/ColorFicha.py             4      0   100%
 core/Dice.py                  41      0   100%
 core/DiceRoller.py             5      0   100%
+core/MoveExecutor.py          24      0   100%
 core/Player.py                23      0   100%
 core/__init__.py               0      0   100%
 pygame_ui/__init__.py          0      0   100%
 pygame_ui/pygame.py            0      0   100%
 --------------------------------------------------------
-TOTAL                        264      3    99%
+TOTAL                        288      3    99%
