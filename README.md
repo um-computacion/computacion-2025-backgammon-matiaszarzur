@@ -6,7 +6,7 @@
 
 ![Version](https://img.shields.io/badge/version-x.x.x-green) #actualizar version final
 
-![Pylint](https://img.shields.io/badge/pylint-7.27%2F10-yellow)
+![Pylint](https://img.shields.io/badge/pylint-7.94%2F10-yellow)
 
 ![Coverage](https://img.shields.io/badge/coverage-99%25-brightgreen)
 
