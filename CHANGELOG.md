@@ -62,3 +62,7 @@ Se corrige la clase Dice con los principios SOLID vistos en clase. Se creó una 
     - Se agregó last_raw_roll para mantener los valores originales del lanzamiento
 Se crearon los tests para la nueva estructura y se actualizaron todos los mocks para usar DiceRoller.
 Se crearon los test para la clase DiceRoller.
+## [11-10-2025] V 0.1.3
+Se implementa la clase MoveExecutor aplicando principios SOLID.
+    - Responsabilidad única: Ejecutar movimientos de fichas en el tablero
+    - Separación de coordinación: Extrae lógica de movimientos de BackgammonGame
