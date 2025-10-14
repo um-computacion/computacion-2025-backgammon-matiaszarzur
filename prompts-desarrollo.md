@@ -94,3 +94,43 @@ Esta conversacion me sirve para darme cuenta en donde debo mejorar el codigo par
 # Archivos
 Board
 testBoard
+
+# Modelo / herramienta usada
+Claude
+# Prompt
+Necesito que me des la estructura para seguir para poder hacer el CLI del proyecto. Necesitaria que primero muestre un menu general con el manejo del juego (Empezar, Reglas y Terminar programa) y el otro para dentro de la partida.Estuve armando la estructura de la clase CLI para mi proyecto de Backgammon, donde manejo toda la interfaz por consola.
+Ya deje definidos los metodos principales (menu principal, menu de partida, acciones del juego, etc.), pero todavia no implemente la logica interna.
+
+Podrias ayudarme a completar el codigo siguiendo la estructura que hice, manteniendo el mismo estilo y organizacion?
+
+Aca te dejo lo que tengo hasta ahora:
+class CLI:
+#init
+
+    def mostrar_menu_principal(self):
+
+
+    def ejecutar_menu_principal(self):
+
+    def mostrar_menu_partida(self):
+
+    def ejecutar_menu_partida(self):
+
+    def nueva_partida(self):
+
+    def ver_tablero(self):
+
+    def lanzar_dados(self):
+
+    def mover_ficha(self):
+
+    def ejecutar(self):
+
+    La idea es que el CLI permita al jugador crear una partida, lanzar los dados, mover fichas, y rendirse o volver al menu principal.
+# Respuesta
+Perfecto, aquí está el código completo del CLI siguiendo tu estructura:
+(Aca me mando las funciones que le pedi anteriormente)
+# Salida
+Lo utilice como guia de algunas funciones pero se reviso bien antes de utilizar las partes solicitadas
+# Archivos
+CLI.py
