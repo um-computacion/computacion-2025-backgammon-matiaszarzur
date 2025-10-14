@@ -66,3 +66,13 @@ Se crearon los test para la clase DiceRoller.
 Se implementa la clase MoveExecutor aplicando principios SOLID.
     - Responsabilidad única: Ejecutar movimientos de fichas en el tablero
     - Separación de coordinación: Extrae lógica de movimientos de BackgammonGame
+## [13-10-2025] V 0.1.3
+Se implemento la estructura basica del CLI con menus.
+
+-iniciazion del CLI 
+-menu principal
+-menu de partida
+-Reglas del juego
+-Limpieza de pantalla
+
+Tambien se agragaron algunos test para el CLI.
