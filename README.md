@@ -8,7 +8,7 @@
 
 ![Pylint](https://img.shields.io/badge/pylint-7.94%2F10-yellow)
 
-![Coverage](https://img.shields.io/badge/coverage-99%25-brightgreen)
+![Coverage](https://img.shields.io/badge/coverage-62%25-red)
 
 ## Información del Estudiante
 - **Nombre:** Matías Zarzur

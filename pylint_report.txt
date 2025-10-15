@@ -118,7 +118,14 @@ test/testDice.py:8:0: R0904: Too many public methods (27/20) (too-many-public-me
 test/testDice.py:2:0: C0411: standard import "unittest.TestCase" should be placed before first party import "core.Dice.Dice"  (wrong-import-order)
 test/testDice.py:3:0: C0411: standard import "unittest.mock.patch" should be placed before first party import "core.Dice.Dice"  (wrong-import-order)
 ************* Module test.testCli
+test/testCli.py:53:0: C0304: Final newline missing (missing-final-newline)
 test/testCli.py:1:0: C0103: Module name "testCli" doesn't conform to snake_case naming style (invalid-name)
+test/testCli.py:6:0: C0115: Missing class docstring (missing-class-docstring)
+test/testCli.py:14:26: W0212: Access to a protected member _CLI__game of a client class (protected-access)
+test/testCli.py:15:29: W0212: Access to a protected member _CLI__move_executor of a client class (protected-access)
+test/testCli.py:16:24: W0212: Access to a protected member _CLI__running of a client class (protected-access)
+test/testCli.py:45:24: W0212: Access to a protected member _CLI__running of a client class (protected-access)
+test/testCli.py:49:26: W0212: Access to a protected member _CLI__game of a client class (protected-access)
 ************* Module test.testBoardInitializer
 test/testBoardInitializer.py:25:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoardInitializer.py:36:0: C0303: Trailing whitespace (trailing-whitespace)
