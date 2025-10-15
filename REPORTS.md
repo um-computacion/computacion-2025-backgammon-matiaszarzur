@@ -23,38 +23,14 @@ TOTAL                        501    191    62%
 ```
 ## Pylint Report
 ```text
-************* Module core.ColorFicha
-core/ColorFicha.py:1:0: C0103: Module name "ColorFicha" doesn't conform to snake_case naming style (invalid-name)
 ************* Module core.DiceRoller
-core/DiceRoller.py:1:0: C0103: Module name "DiceRoller" doesn't conform to snake_case naming style (invalid-name)
 core/DiceRoller.py:5:0: R0903: Too few public methods (1/2) (too-few-public-methods)
-************* Module core.MoveExecutor
-core/MoveExecutor.py:1:0: C0103: Module name "MoveExecutor" doesn't conform to snake_case naming style (invalid-name)
-core/MoveExecutor.py:12:8: R1705: Unnecessary "else" after "return", remove the "else" and de-indent the code inside it (no-else-return)
-************* Module core.Dice
-core/Dice.py:58:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:61:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:64:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Dice.py:1:0: C0103: Module name "Dice" doesn't conform to snake_case naming style (invalid-name)
-************* Module test.testMoveExecutor
-test/testMoveExecutor.py:46:8: C0103: Attribute name "_Dice__available_moves" doesn't conform to snake_case naming style (invalid-name)
-************* Module core.BackgammonGame
-core/BackgammonGame.py:1:0: C0103: Module name "BackgammonGame" doesn't conform to snake_case naming style (invalid-name)
 ************* Module core.BoardInitializer
-core/BoardInitializer.py:1:0: C0103: Module name "BoardInitializer" doesn't conform to snake_case naming style (invalid-name)
 core/BoardInitializer.py:10:0: R0903: Too few public methods (1/2) (too-few-public-methods)
-************* Module core.Board
-core/Board.py:1:0: C0103: Module name "Board" doesn't conform to snake_case naming style (invalid-name)
-************* Module core.Player
-core/Player.py:13:0: C0303: Trailing whitespace (trailing-whitespace)
-core/Player.py:1:0: C0103: Module name "Player" doesn't conform to snake_case naming style (invalid-name)
-************* Module core.Checker
-core/Checker.py:1:0: C0103: Module name "Checker" doesn't conform to snake_case naming style (invalid-name)
 ************* Module test.testTipoFicha
 test/testTipoFicha.py:30:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testTipoFicha.py:46:45: C0303: Trailing whitespace (trailing-whitespace)
 test/testTipoFicha.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-test/testTipoFicha.py:1:0: C0103: Module name "testTipoFicha" doesn't conform to snake_case naming style (invalid-name)
 test/testTipoFicha.py:4:0: C0115: Missing class docstring (missing-class-docstring)
 test/testTipoFicha.py:6:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testTipoFicha.py:10:4: C0116: Missing function or method docstring (missing-function-docstring)
@@ -70,11 +46,8 @@ test/testTipoFicha.py:48:4: C0116: Missing function or method docstring (missing
 test/testBackgammonGame.py:89:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBackgammonGame.py:159:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBackgammonGame.py:165:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testBackgammonGame.py:1:0: C0103: Module name "testBackgammonGame" doesn't conform to snake_case naming style (invalid-name)
 test/testBackgammonGame.py:11:0: C0115: Missing class docstring (missing-class-docstring)
 test/testBackgammonGame.py:52:37: W0613: Unused argument 'mock_roll' (unused-argument)
-************* Module test.testPygame
-test/testPygame.py:1:0: C0103: Module name "testPygame" doesn't conform to snake_case naming style (invalid-name)
 ************* Module test.testChecker
 test/testChecker.py:17:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testChecker.py:28:64: C0303: Trailing whitespace (trailing-whitespace)
@@ -85,7 +58,6 @@ test/testChecker.py:44:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testChecker.py:47:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testChecker.py:50:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testChecker.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-test/testChecker.py:1:0: C0103: Module name "testChecker" doesn't conform to snake_case naming style (invalid-name)
 test/testChecker.py:4:0: W0404: Reimport 'ColorFicha' (imported line 3) (reimported)
 test/testChecker.py:6:0: C0115: Missing class docstring (missing-class-docstring)
 test/testChecker.py:11:4: C0116: Missing function or method docstring (missing-function-docstring)
@@ -121,7 +93,6 @@ test/testDice.py:298:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testDice.py:302:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testDice.py:305:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testDice.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-test/testDice.py:1:0: C0103: Module name "testDice" doesn't conform to snake_case naming style (invalid-name)
 test/testDice.py:8:0: C0115: Missing class docstring (missing-class-docstring)
 test/testDice.py:17:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testDice.py:27:4: C0116: Missing function or method docstring (missing-function-docstring)
@@ -143,14 +114,18 @@ test/testDice.py:8:0: R0904: Too many public methods (27/20) (too-many-public-me
 test/testDice.py:2:0: C0411: standard import "unittest.TestCase" should be placed before first party import "core.Dice.Dice"  (wrong-import-order)
 test/testDice.py:3:0: C0411: standard import "unittest.mock.patch" should be placed before first party import "core.Dice.Dice"  (wrong-import-order)
 ************* Module test.testCli
-test/testCli.py:53:0: C0304: Final newline missing (missing-final-newline)
-test/testCli.py:1:0: C0103: Module name "testCli" doesn't conform to snake_case naming style (invalid-name)
-test/testCli.py:6:0: C0115: Missing class docstring (missing-class-docstring)
-test/testCli.py:14:26: W0212: Access to a protected member _CLI__game of a client class (protected-access)
-test/testCli.py:15:29: W0212: Access to a protected member _CLI__move_executor of a client class (protected-access)
-test/testCli.py:16:24: W0212: Access to a protected member _CLI__running of a client class (protected-access)
-test/testCli.py:45:24: W0212: Access to a protected member _CLI__running of a client class (protected-access)
-test/testCli.py:49:26: W0212: Access to a protected member _CLI__game of a client class (protected-access)
+test/testCli.py:115:0: C0304: Final newline missing (missing-final-newline)
+test/testCli.py:7:0: C0115: Missing class docstring (missing-class-docstring)
+test/testCli.py:15:26: W0212: Access to a protected member _CLI__game of a client class (protected-access)
+test/testCli.py:16:29: W0212: Access to a protected member _CLI__move_executor of a client class (protected-access)
+test/testCli.py:17:24: W0212: Access to a protected member _CLI__running of a client class (protected-access)
+test/testCli.py:96:24: W0212: Access to a protected member _CLI__running of a client class (protected-access)
+test/testCli.py:100:26: W0212: Access to a protected member _CLI__game of a client class (protected-access)
+test/testCli.py:104:29: W0212: Access to a protected member _CLI__move_executor of a client class (protected-access)
+test/testCli.py:109:8: W0212: Access to a protected member _CLI__game of a client class (protected-access)
+test/testCli.py:110:29: W0212: Access to a protected member _CLI__game of a client class (protected-access)
+test/testCli.py:111:25: W0212: Access to a protected member _CLI__game of a client class (protected-access)
+test/testCli.py:7:0: R0904: Too many public methods (21/20) (too-many-public-methods)
 ************* Module test.testBoardInitializer
 test/testBoardInitializer.py:25:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoardInitializer.py:36:0: C0303: Trailing whitespace (trailing-whitespace)
@@ -177,7 +152,6 @@ test/testBoardInitializer.py:137:68: C0303: Trailing whitespace (trailing-whites
 test/testBoardInitializer.py:141:68: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoardInitializer.py:144:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoardInitializer.py:152:0: C0304: Final newline missing (missing-final-newline)
-test/testBoardInitializer.py:1:0: C0103: Module name "testBoardInitializer" doesn't conform to snake_case naming style (invalid-name)
 test/testBoardInitializer.py:10:0: C0115: Missing class docstring (missing-class-docstring)
 ************* Module test.testBoard
 test/testBoard.py:102:0: C0303: Trailing whitespace (trailing-whitespace)
@@ -201,7 +175,6 @@ test/testBoard.py:203:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoard.py:212:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoard.py:216:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoard.py:219:0: C0304: Final newline missing (missing-final-newline)
-test/testBoard.py:1:0: C0103: Module name "testBoard" doesn't conform to snake_case naming style (invalid-name)
 test/testBoard.py:8:0: C0115: Missing class docstring (missing-class-docstring)
 test/testBoard.py:16:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:20:4: C0116: Missing function or method docstring (missing-function-docstring)
@@ -234,10 +207,10 @@ test/testBoard.py:168:4: C0116: Missing function or method docstring (missing-fu
 test/testBoard.py:173:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:178:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:8:0: R0904: Too many public methods (34/20) (too-many-public-methods)
+************* Module test.testMoveExecutor
 test/testMoveExecutor.py:144:73: C0303: Trailing whitespace (trailing-whitespace)
 test/testMoveExecutor.py:149:71: C0303: Trailing whitespace (trailing-whitespace)
 test/testMoveExecutor.py:165:0: C0304: Final newline missing (missing-final-newline)
-test/testMoveExecutor.py:1:0: C0103: Module name "testMoveExecutor" doesn't conform to snake_case naming style (invalid-name)
 test/testMoveExecutor.py:13:0: C0115: Missing class docstring (missing-class-docstring)
 test/testMoveExecutor.py:46:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
 test/testMoveExecutor.py:58:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
@@ -268,7 +241,6 @@ test/testDiceRoller.py:104:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testDiceRoller.py:107:48: C0303: Trailing whitespace (trailing-whitespace)
 test/testDiceRoller.py:111:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testDiceRoller.py:116:0: C0304: Final newline missing (missing-final-newline)
-test/testDiceRoller.py:1:0: C0103: Module name "testDiceRoller" doesn't conform to snake_case naming style (invalid-name)
 test/testDiceRoller.py:7:0: C0115: Missing class docstring (missing-class-docstring)
 test/testDiceRoller.py:101:48: W0613: Unused argument 'mock_randint' (unused-argument)
 test/testDiceRoller.py:108:48: W0613: Unused argument 'mock_randint' (unused-argument)
@@ -287,11 +259,10 @@ test/testPlayer.py:104:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testPlayer.py:113:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testPlayer.py:116:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testPlayer.py:122:0: C0304: Final newline missing (missing-final-newline)
-test/testPlayer.py:1:0: C0103: Module name "testPlayer" doesn't conform to snake_case naming style (invalid-name)
 test/testPlayer.py:7:0: C0115: Missing class docstring (missing-class-docstring)
 
 -----------------------------------
-Your code has been rated at 7.94/10
+Your code has been rated at 8.17/10
 
 
 ```
