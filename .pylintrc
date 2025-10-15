@@ -29,3 +29,5 @@ min-public-methods=2
 [REPORTS]
 # Disable the generation of reports.
 reports=no
+
+disable=invalid-name
