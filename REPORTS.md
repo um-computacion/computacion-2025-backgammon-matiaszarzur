@@ -3,8 +3,8 @@
 ```text
 Name                       Stmts   Miss  Cover   Missing
 --------------------------------------------------------
+cli/Cli.py                   213    188    12%   19, 23-30, 34-46, 50-64, 68-89, 93-114, 118-138, 142-184, 188-198, 202-237, 241-249, 253-261, 265-270, 274-282, 286-290, 295-296
 cli/__init__.py                0      0   100%
-cli/cli.py                     0      0   100%
 core/BackgammonGame.py        63      0   100%
 core/Board.py                 92      3    97%   138-140
 core/BoardInitializer.py      23      0   100%
@@ -18,7 +18,7 @@ core/__init__.py               0      0   100%
 pygame_ui/__init__.py          0      0   100%
 pygame_ui/pygame.py            0      0   100%
 --------------------------------------------------------
-TOTAL                        288      3    99%
+TOTAL                        501    191    62%
 
 ```
 ## Pylint Report
@@ -143,7 +143,14 @@ test/testDice.py:8:0: R0904: Too many public methods (27/20) (too-many-public-me
 test/testDice.py:2:0: C0411: standard import "unittest.TestCase" should be placed before first party import "core.Dice.Dice"  (wrong-import-order)
 test/testDice.py:3:0: C0411: standard import "unittest.mock.patch" should be placed before first party import "core.Dice.Dice"  (wrong-import-order)
 ************* Module test.testCli
+test/testCli.py:53:0: C0304: Final newline missing (missing-final-newline)
 test/testCli.py:1:0: C0103: Module name "testCli" doesn't conform to snake_case naming style (invalid-name)
+test/testCli.py:6:0: C0115: Missing class docstring (missing-class-docstring)
+test/testCli.py:14:26: W0212: Access to a protected member _CLI__game of a client class (protected-access)
+test/testCli.py:15:29: W0212: Access to a protected member _CLI__move_executor of a client class (protected-access)
+test/testCli.py:16:24: W0212: Access to a protected member _CLI__running of a client class (protected-access)
+test/testCli.py:45:24: W0212: Access to a protected member _CLI__running of a client class (protected-access)
+test/testCli.py:49:26: W0212: Access to a protected member _CLI__game of a client class (protected-access)
 ************* Module test.testBoardInitializer
 test/testBoardInitializer.py:25:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoardInitializer.py:36:0: C0303: Trailing whitespace (trailing-whitespace)
