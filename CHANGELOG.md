@@ -85,3 +85,6 @@ Se implemento la estructura faltante del CLI.
     - Finalizar turno y cambiar jugador
     - Rendirse y declarar ganador
     - Mostrar ganador con emoji (con ayuda de IA, prompt de ayer)
+
+se crearon los test y se modificaron algunos de Cli.
+Se modificaron algunas clases para mejorar la valoracion del codigo.

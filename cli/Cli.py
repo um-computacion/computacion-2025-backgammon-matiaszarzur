@@ -87,7 +87,7 @@ class CLI:
             print(f"\nDados lanzados: {dados[0]}, {dados[1]}")
             print(f"Movimientos disponibles: {movimientos}")
             print("="*50)
-            
+
     def ejecutar_menu_partida(self):
         """Ejecutar lógica del menú de partida."""
         if self.__game.is_game_over:
@@ -231,7 +231,7 @@ class CLI:
 
         except ValueError as e:
             print(f"\nError: {e}")
-        except Exception as e:
+        except (ValueError, RuntimeError) as e:
             print(f"\nError inesperado: {e}")
 
         input("\nPresione Enter para continuar...")

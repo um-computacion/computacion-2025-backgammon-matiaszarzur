@@ -11,8 +11,7 @@ class MoveExecutor:
         """Calcular el punto de destino según el color del jugador."""
         if player_color == ColorFicha.BLANCA:
             return from_point - dice_value
-        else:  # ColorFicha.NEGRA
-            return from_point + dice_value
+        return from_point + dice_value
     @staticmethod
     def execute_move(board: Board, dice: Dice, player: Player, from_point: int, dice_value: int):
         """Ejecutar un movimiento de ficha."""

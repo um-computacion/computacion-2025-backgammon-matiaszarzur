@@ -55,13 +55,13 @@ class Dice:
         """
         # Generar números aleatorios
         self.__last_raw_roll = DiceRoller.roll_two_dice()
-        
+
         # Aplicar reglas de backgammon
         moves = self._process_roll(self.__last_raw_roll)
-        
+
         # Configurar movimientos disponibles
         self.__available_moves = list(moves)
-        
+
         return self.__last_raw_roll
 
     def is_double(self):
