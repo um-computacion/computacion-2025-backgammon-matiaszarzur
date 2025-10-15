@@ -62,11 +62,11 @@ Se corrige la clase Dice con los principios SOLID vistos en clase. Se creó una 
     - Se agregó last_raw_roll para mantener los valores originales del lanzamiento
 Se crearon los tests para la nueva estructura y se actualizaron todos los mocks para usar DiceRoller.
 Se crearon los test para la clase DiceRoller.
-## [11-10-2025] V 0.1.3
+## [11-10-2025] V 0.1.4
 Se implementa la clase MoveExecutor aplicando principios SOLID.
     - Responsabilidad única: Ejecutar movimientos de fichas en el tablero
     - Separación de coordinación: Extrae lógica de movimientos de BackgammonGame
-## [13-10-2025] V 0.1.3
+## [13-10-2025] V 0.1.5
 Se implemento la estructura basica del CLI con menus.
 
 -iniciazion del CLI 
@@ -76,3 +76,12 @@ Se implemento la estructura basica del CLI con menus.
 -Limpieza de pantalla
 
 Tambien se agragaron algunos test para el CLI.
+## [14-10-2025] V 0.1.6
+Se implemento la estructura faltante del CLI.
+    - Nueva partida con validacion de nombres
+    - Visualizacion del tablero en consola
+    - Lanzar dados con deteccion de dobles
+    - Mover fichas usando MoveExecutor
+    - Finalizar turno y cambiar jugador
+    - Rendirse y declarar ganador
+    - Mostrar ganador con emoji (con ayuda de IA, prompt de ayer)
