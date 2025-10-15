@@ -19,16 +19,16 @@
 Implementación completa del juego Backgammon desarrollado en Python como proyecto académico. El juego incluye todas las reglas tradicionales del Backgammon con interfaz de línea de comandos, sistema de colores, manejo de dados y validación completa de movimientos.
 
 ## Características
-(- 🎲 Sistema completo de dados con lógica de dobles)EN PROGRESO 
-(- 🎯 Validación completa de movimientos según reglas oficiales)EN PROGRESO 
-(- 🎨 Interfaz colorida con sistema de colores personalizado)EN PROGRESO 
-(- 👥 Sistema de jugadores con turnos alternados)EN PROGRESO 
-(- 🏁 Detección automática de condiciones de victoria)EN PROGRESO 
-(- ✅ Tests exhaustivos para todas las funcionalidades)EN PROGRESO 
-(-📊 Análisis de cobertura de código superior al 90%)EN PROGRESO
-🔍 Análisis estático con Pylint
-🤖 CI/CD automatizado con GitHub Actions
-📝 Reportes automatizados de calidad de código
+- 🎲 Sistema completo de dados con lógica de dobles
+- 🎯 Validación completa de movimientos según reglas oficiales
+- 🎨 Interfaz colorida con sistema de colores personalizado 
+- 👥 Sistema de jugadores con turnos alternados
+- 🏁 Detección automática de condiciones de victoria
+- ✅ Tests exhaustivos para todas las funcionalidades
+-📊 Análisis de cobertura de código superior al 90%
+-🔍 Análisis estático con Pylint
+-🤖 CI/CD automatizado con GitHub Actions
+-📝 Reportes automatizados de calidad de código
 
 ## Estructura del Proyecto
 ```
