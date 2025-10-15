@@ -552,3 +552,27 @@ if __name__ == '__main__':
 se utilizaron estos test dados por la ia para aguilizar el proceso de trabajo
 # Archivos
 testMoveExecutor.py
+
+# Modelo / herramienta usada
+Claude
+# Prompt
+Nesecito mejorar el coverage del Cli. cli\Cli.py                   213    188    12%   19, 23-30, 34-46, 50-64, 68-89, 93-114, 118-138, 142-184, 188-198, 202-237, 241-249, 253-261, 265-270, 274-282, 286-290, 295-296
+Porque tengo tan poco?
+# Respuesta
+El CLI tiene solo 12% de coverage porque los tests actuales solo verifican que existen los métodos, pero no los ejecutan.
+Para mejorar el coverage del CLI necesitas usar @patch porque todos los métodos usan input() y print().
+Para testear correctamente un CLI que usa I/O, es necesario usar mocks para simular la entrada del usuario (input()) y capturar la salida (print()). 
+
+Proporciono una estructura de tests usando:
+- @patch('builtins.input') para simular respuestas del usuario
+- @patch('sys.stdout') para capturar output
+- @patch('os.system') para limpiar_pantalla
+- @patch de DiceRoller para controlar aleatoriedad
+# Salida
+Se generaron 14 tests adicionales con mocks que ejecutan la logica real del CLI
+Segunda iteracion: 17 tests adicionales para casos edge y opciones de menu
+
+El coverage del CLI mejoro de 12% inicial a 63% despues de los primeros tests, y se espera llegar a 85-90% con los tests adicionales. Esto cubre los flujos principales de interaccion con el usuario, validaciones, manejo de errores, y todas las opciones de los menus.
+
+# Archivos
+testCli.py
