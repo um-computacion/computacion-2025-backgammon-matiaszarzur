@@ -82,7 +82,7 @@ class TestDice(TestCase):
             self.assertTrue(dice.is_double())
             dice.clear_roll()
             self.assertFalse(dice.is_double())
-            
+
         with patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(1, 6)):
             dice.roll()
             self.assertFalse(dice.is_double())
@@ -124,7 +124,7 @@ class TestDice(TestCase):
             result = self.dice.use_move(5)  # no existe
             self.assertFalse(result)
             self.assertEqual(self.dice.last_roll, (2, 3))
-        
+
     def test_use_move_not_found_branch(self):
         dice = Dice()
         with patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(2, 3)):
@@ -132,7 +132,7 @@ class TestDice(TestCase):
             result = dice.use_move(6)  # 6 no está en la tirada
             self.assertFalse(result)
             self.assertEqual(dice.last_roll, (2, 3))  # no cambia
-    
+
     def test_use_move_no_last_roll(self):
         """Test use_move cuando no hay tirada previa (last_roll es None)"""
         dice = Dice()
@@ -163,19 +163,19 @@ class TestDice(TestCase):
         dice = Dice()
         with patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(3, 6)):
             dice.roll()
-        
+
             # Usar primer movimiento
             result1 = dice.use_move(3)
             self.assertTrue(result1)
             self.assertEqual(dice.last_roll, (6,))
             self.assertEqual(dice.get_moves_remaining(), 1)
-            
+
             # Usar segundo movimiento
             result2 = dice.use_move(6)
             self.assertTrue(result2)
             self.assertEqual(dice.last_roll, ())
             self.assertEqual(dice.get_moves_remaining(), 0)
-            
+
             # Intentar usar movimiento cuando ya no hay
             result3 = dice.use_move(3)
             self.assertFalse(result3)
@@ -185,13 +185,13 @@ class TestDice(TestCase):
         dice = Dice()
         with patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(2, 2)):
             dice.roll()
-        
+
             # Usar tres movimientos
             for i in range(3):
                 result = dice.use_move(2)
                 self.assertTrue(result)
                 self.assertEqual(dice.get_moves_remaining(), 3-i)
-            
+
             # El último movimiento
             result = dice.use_move(2)
             self.assertTrue(result)
@@ -204,11 +204,11 @@ class TestDice(TestCase):
         with patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(3, 3)):
             dice.roll()
             self.assertTrue(dice.is_double())  # 4 elementos = doble
-            
+
             # Usar un movimiento - ya no es considerado doble
             dice.use_move(3)
             self.assertFalse(dice.is_double())  # Solo 3 elementos, no es doble según la implementación
-            
+
             # Confirmar que sigue siendo False con menos elementos
             dice.use_move(3)
             dice.use_move(3)
@@ -217,34 +217,31 @@ class TestDice(TestCase):
     def test_is_double_exact_behavior(self):
         """Test que is_double() solo es True con exactamente 4 elementos"""
         dice = Dice()
-        
         # Test con diferentes longitudes usando roll real
         with patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(2, 2)):
             dice.roll()
             self.assertTrue(dice.is_double())  # 4 elementos después del roll
-            
+
             dice.use_move(2)  # 3 elementos
             self.assertFalse(dice.is_double())
-            
+
             dice.use_move(2)  # 2 elementos
             self.assertFalse(dice.is_double())
-            
+
             dice.use_move(2)  # 1 elemento
             self.assertFalse(dice.is_double())
-            
+
             dice.use_move(2)  # 0 elementos
             self.assertFalse(dice.is_double())
 
     def test_get_roll_values_after_partial_use(self):
         """Test get_roll_values después de usar algunos movimientos"""
         dice = Dice()
-        
-        # Test con dobles después de usar movimientos
         with patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(5, 5)):
             dice.roll()
             dice.use_move(5)  # Usar uno
             self.assertEqual(dice.get_roll_values(), (5, 5))  # Devuelve el raw_roll original
-        
+
         # Test con tirada normal después de usar un movimiento
         with patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(2, 6)):
             dice.roll()
@@ -255,7 +252,6 @@ class TestDice(TestCase):
         """Test casos edge cuando last_roll está vacío"""
         dice = Dice()
         # Sin necesidad de establecer last_roll manualmente, ya es () por defecto
-        
         self.assertEqual(dice.get_moves_remaining(), 0)
         self.assertFalse(dice.is_double())
         result = dice.use_move(1)
@@ -295,13 +291,13 @@ class TestDice(TestCase):
         """Test has_moves_available method"""
         dice = Dice()
         self.assertFalse(dice.has_moves_available())  # Sin movimientos inicialmente
-        
+
         with patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(3, 5)):
             dice.roll()
             self.assertTrue(dice.has_moves_available())
-            
+
             dice.use_move(3)
             self.assertTrue(dice.has_moves_available())  # Aún queda el 5
-            
+
             dice.use_move(5)
             self.assertFalse(dice.has_moves_available())  # Ya no quedan movimientos

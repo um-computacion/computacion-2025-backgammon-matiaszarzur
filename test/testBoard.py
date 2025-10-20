@@ -104,12 +104,12 @@ class TestBoard(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             self.tablero.puntos = [[] for _ in range(23)]
         self.assertEqual(str(context.exception), "Los nuevos puntos deben ser una lista de 24 elementos.")
-        
+
     def test_setter_puntos_no_es_lista(self):
         with self.assertRaises(ValueError) as context:
             self.tablero.puntos = "no es una lista"
         self.assertEqual(str(context.exception), "Los nuevos puntos deben ser una lista de 24 elementos.")
-        
+
     def test_setter_contenedor_blancas_valido(self):
         nuevo_contenedor = [self.ficha_blanca]
         self.tablero.contenedor_blancas = nuevo_contenedor
@@ -120,8 +120,8 @@ class TestBoard(unittest.TestCase):
         self.tablero.contenedor_negras = nuevas_fichas
         self.assertEqual(len(self.tablero.contenedor_negras), 1)
         self.assertEqual(self.tablero.contenedor_negras[0].color, ColorFicha.NEGRA)
-        
-        
+
+
     def test_resetear_tablero(self):
         self.tablero.agregar_ficha(0, self.ficha_blanca)
         self.tablero.agregar_ficha(5, self.ficha_negra)
@@ -141,7 +141,7 @@ class TestBoard(unittest.TestCase):
         self.tablero.agregar_ficha_contenedor(self.ficha_blanca)
         self.tablero.agregar_ficha_contenedor(self.ficha_negra)
         self.tablero.agregar_ficha_contenedor(Checker(ColorFicha.BLANCA))
-        
+
         self.assertFalse(self.tablero.contenedor_esta_vacio(ColorFicha.BLANCA))
         self.assertFalse(self.tablero.contenedor_esta_vacio(ColorFicha.NEGRA))
         self.tablero.limpiar_contenedores()
@@ -151,16 +151,16 @@ class TestBoard(unittest.TestCase):
     def test_contar_fichas_contenedor_color_invalido(self):
         self.assertEqual(self.tablero.contar_fichas_contenedor("no es un color"), 0)
         self.assertEqual(self.tablero.contar_fichas_contenedor(None), 0)
-        
+
     def test_quitar_ficha_contenedor_vacio_ambos_colores(self):
         self.assertIsNone(self.tablero.quitar_ficha_contenedor(ColorFicha.BLANCA))
         self.assertIsNone(self.tablero.quitar_ficha_contenedor(ColorFicha.NEGRA))
-        
+
     def test_obtener_color_punto_despues_de_quitar_ficha(self):
         self.tablero.agregar_ficha(10, self.ficha_blanca)
         color = self.tablero.obtener_color_punto(10)
         self.assertEqual(color, ColorFicha.BLANCA)
-        
+
         self.tablero.quitar_ficha(10)
         color_despues = self.tablero.obtener_color_punto(10)
         self.assertIsNone(color_despues)
@@ -179,7 +179,7 @@ class TestBoard(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             self.tablero.contenedor_negras = 12345
         self.assertEqual(str(context.exception), "El nuevo contenedor debe ser una lista.")
-        
+
     def test_quitar_ficha_contenedor_blanca_exitoso(self):
         """Test quitar ficha blanca cuando hay fichas en el contenedor."""
         # Agregar una ficha blanca al contenedor

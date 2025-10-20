@@ -1,6 +1,5 @@
 """Tests para la clase MoveExecutor."""
 import unittest
-from unittest.mock import Mock
 from core.MoveExecutor import MoveExecutor
 from core.Board import Board
 from core.BoardInitializer import BoardInitializer

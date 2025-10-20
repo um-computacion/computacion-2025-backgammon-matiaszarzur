@@ -376,7 +376,7 @@ class TestCLI(unittest.TestCase):
         """Test ejecutar menú partida opción 2."""
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
-        
+
         self.cli.ejecutar_menu_partida()
         mock_lanzar.assert_called_once()
 
