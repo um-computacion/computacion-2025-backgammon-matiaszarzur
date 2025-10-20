@@ -14,7 +14,7 @@ class TestChecker(unittest.TestCase):
     def test_color_negro(self):
         self.checker = Checker(ColorFicha.NEGRA)
         self.assertEqual(self.checker.color, ColorFicha.NEGRA)
-        
+
     def test_color_blanca_nombre(self):
         """Test que BLANCA tenga el nombre correcto."""
         self.assertEqual(ColorFicha.BLANCA.name, 'BLANCA')
