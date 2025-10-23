@@ -92,3 +92,5 @@ Se implemento la estructura faltante del CLI.
 
 se crearon los test y se modificaron algunos de Cli.
 Se modificaron algunas clases para mejorar la valoracion del codigo.
+## [20-10-2025] V 0.1.9
+Se realizaron cambios en el requirements.txt para la instalacion de Pygame. V 2.6.1
