@@ -96,4 +96,10 @@ Se modificaron algunas clases para mejorar la valoracion del codigo.
 Se realizaron cambios en el requirements.txt para la instalacion de Pygame. V 2.6.1
 ## [23-10-2025] V 0.2.0
 Se implemento la estructura del tableroUI, luego se implementaron las funciones necesarias para el funcionamiento.
-
+- Crea clase TableroUI aplicando principio de responsabilidad unica
+- Renderiza tablero completo: marco, barra, 24 triangulos, fichas
+## [25-10-2025] V 0.2.1
+Se implementaron las siguientes funciones en el pygame:
+- Agrega numeracion de puntos (1-24) para mejor usabilidad
+- Implementa deteccion de clicks en triangulos
+- Agrega sistema de resaltado visual de puntos seleccionados
