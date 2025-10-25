@@ -17,40 +17,17 @@ core/Player.py                23      0   100%
 core/__init__.py               0      0   100%
 pygame_ui/__init__.py          0      0   100%
 pygame_ui/pygame.py            0      0   100%
+pygame_ui/pygame_ui.py       156    156     0%   2-277
 --------------------------------------------------------
-TOTAL                        501     43    91%
+TOTAL                        657    199    70%
 
 ```
 ## Pylint Report
 ```text
-************* Module core.BoardInitializer
-core/BoardInitializer.py:10:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 ************* Module core.DiceRoller
 core/DiceRoller.py:5:0: R0903: Too few public methods (1/2) (too-few-public-methods)
-************* Module test.testMoveExecutor
-test/testMoveExecutor.py:143:73: C0303: Trailing whitespace (trailing-whitespace)
-test/testMoveExecutor.py:148:71: C0303: Trailing whitespace (trailing-whitespace)
-test/testMoveExecutor.py:12:0: C0115: Missing class docstring (missing-class-docstring)
-test/testMoveExecutor.py:45:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
-test/testMoveExecutor.py:57:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
-test/testMoveExecutor.py:68:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
-test/testMoveExecutor.py:75:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
-test/testMoveExecutor.py:84:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
-test/testMoveExecutor.py:92:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
-test/testMoveExecutor.py:100:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
-test/testMoveExecutor.py:108:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
-test/testMoveExecutor.py:119:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
-test/testMoveExecutor.py:132:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
-test/testMoveExecutor.py:156:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
-************* Module test.testBoardInitializer
-test/testBoardInitializer.py:70:68: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoardInitializer.py:74:68: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoardInitializer.py:122:68: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoardInitializer.py:126:68: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoardInitializer.py:129:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoardInitializer.py:137:68: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoardInitializer.py:141:68: C0303: Trailing whitespace (trailing-whitespace)
-test/testBoardInitializer.py:10:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module core.BoardInitializer
+core/BoardInitializer.py:10:0: R0903: Too few public methods (1/2) (too-few-public-methods)
 ************* Module test.testTipoFicha
 test/testTipoFicha.py:30:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testTipoFicha.py:46:45: C0303: Trailing whitespace (trailing-whitespace)
@@ -66,8 +43,28 @@ test/testTipoFicha.py:34:4: C0116: Missing function or method docstring (missing
 test/testTipoFicha.py:40:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testTipoFicha.py:44:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testTipoFicha.py:48:4: C0116: Missing function or method docstring (missing-function-docstring)
-************* Module test.testPlayer
-test/testPlayer.py:7:0: C0115: Missing class docstring (missing-class-docstring)
+************* Module test.testBackgammonGame
+test/testBackgammonGame.py:89:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:159:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:165:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBackgammonGame.py:11:0: C0115: Missing class docstring (missing-class-docstring)
+test/testBackgammonGame.py:52:37: W0613: Unused argument 'mock_roll' (unused-argument)
+************* Module test.testChecker
+test/testChecker.py:28:64: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:29:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:34:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:41:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:44:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:47:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:50:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testChecker.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+test/testChecker.py:4:0: W0404: Reimport 'ColorFicha' (imported line 3) (reimported)
+test/testChecker.py:6:0: C0115: Missing class docstring (missing-class-docstring)
+test/testChecker.py:11:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testChecker.py:14:4: C0116: Missing function or method docstring (missing-function-docstring)
+test/testChecker.py:46:25: C0121: Comparison 'ficha == None' should be 'ficha is None' (singleton-comparison)
+test/testChecker.py:52:25: C1803: "ficha == []" can be simplified to "not ficha", if it is strictly a sequence, as an empty list is falsey (use-implicit-booleaness-not-comparison)
+test/testChecker.py:4:0: C0411: standard import "test.testTipoFicha.ColorFicha" should be placed before first party imports "core.Checker.Checker", "core.ColorFicha.ColorFicha"  (wrong-import-order)
 ************* Module test.testDice
 test/testDice.py:5:0: C0301: Line too long (196/100) (line-too-long)
 test/testDice.py:6:0: C0301: Line too long (127/100) (line-too-long)
@@ -95,34 +92,6 @@ test/testDice.py:281:39: W0613: Unused argument 'mock_roll' (unused-argument)
 test/testDice.py:8:0: R0904: Too many public methods (27/20) (too-many-public-methods)
 test/testDice.py:2:0: C0411: standard import "unittest.TestCase" should be placed before first party import "core.Dice.Dice"  (wrong-import-order)
 test/testDice.py:3:0: C0411: standard import "unittest.mock.patch" should be placed before first party import "core.Dice.Dice"  (wrong-import-order)
-************* Module test.testChecker
-test/testChecker.py:28:64: C0303: Trailing whitespace (trailing-whitespace)
-test/testChecker.py:29:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testChecker.py:34:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testChecker.py:41:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testChecker.py:44:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testChecker.py:47:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testChecker.py:50:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testChecker.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-test/testChecker.py:4:0: W0404: Reimport 'ColorFicha' (imported line 3) (reimported)
-test/testChecker.py:6:0: C0115: Missing class docstring (missing-class-docstring)
-test/testChecker.py:11:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testChecker.py:14:4: C0116: Missing function or method docstring (missing-function-docstring)
-test/testChecker.py:46:25: C0121: Comparison 'ficha == None' should be 'ficha is None' (singleton-comparison)
-test/testChecker.py:52:25: C1803: "ficha == []" can be simplified to "not ficha", if it is strictly a sequence, as an empty list is falsey (use-implicit-booleaness-not-comparison)
-test/testChecker.py:4:0: C0411: standard import "test.testTipoFicha.ColorFicha" should be placed before first party imports "core.Checker.Checker", "core.ColorFicha.ColorFicha"  (wrong-import-order)
-************* Module test.testDiceRoller
-test/testDiceRoller.py:96:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testDiceRoller.py:107:48: C0303: Trailing whitespace (trailing-whitespace)
-test/testDiceRoller.py:7:0: C0115: Missing class docstring (missing-class-docstring)
-test/testDiceRoller.py:101:48: W0613: Unused argument 'mock_randint' (unused-argument)
-test/testDiceRoller.py:108:48: W0613: Unused argument 'mock_randint' (unused-argument)
-************* Module test.testBackgammonGame
-test/testBackgammonGame.py:89:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testBackgammonGame.py:159:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testBackgammonGame.py:165:0: C0303: Trailing whitespace (trailing-whitespace)
-test/testBackgammonGame.py:11:0: C0115: Missing class docstring (missing-class-docstring)
-test/testBackgammonGame.py:52:37: W0613: Unused argument 'mock_roll' (unused-argument)
 ************* Module test.testCli
 test/testCli.py:248:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testCli.py:257:0: C0303: Trailing whitespace (trailing-whitespace)
@@ -258,6 +227,15 @@ test/testCli.py:10:0: R0904: Too many public methods (50/20) (too-many-public-me
 test/testCli.py:5:0: C0411: standard import "unittest.mock.patch" should be placed before first party imports "cli.Cli.CLI", "core.BackgammonGame.BackgammonGame"  (wrong-import-order)
 test/testCli.py:6:0: C0411: standard import "io.StringIO" should be placed before first party imports "cli.Cli.CLI", "core.BackgammonGame.BackgammonGame"  (wrong-import-order)
 test/testCli.py:5:0: W0611: Unused MagicMock imported from unittest.mock (unused-import)
+************* Module test.testBoardInitializer
+test/testBoardInitializer.py:70:68: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoardInitializer.py:74:68: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoardInitializer.py:122:68: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoardInitializer.py:126:68: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoardInitializer.py:129:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoardInitializer.py:137:68: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoardInitializer.py:141:68: C0303: Trailing whitespace (trailing-whitespace)
+test/testBoardInitializer.py:10:0: C0115: Missing class docstring (missing-class-docstring)
 ************* Module test.testBoard
 test/testBoard.py:102:0: C0303: Trailing whitespace (trailing-whitespace)
 test/testBoard.py:106:0: C0301: Line too long (106/100) (line-too-long)
@@ -302,6 +280,29 @@ test/testBoard.py:168:4: C0116: Missing function or method docstring (missing-fu
 test/testBoard.py:173:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:178:4: C0116: Missing function or method docstring (missing-function-docstring)
 test/testBoard.py:8:0: R0904: Too many public methods (34/20) (too-many-public-methods)
+************* Module test.testMoveExecutor
+test/testMoveExecutor.py:143:73: C0303: Trailing whitespace (trailing-whitespace)
+test/testMoveExecutor.py:148:71: C0303: Trailing whitespace (trailing-whitespace)
+test/testMoveExecutor.py:12:0: C0115: Missing class docstring (missing-class-docstring)
+test/testMoveExecutor.py:45:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
+test/testMoveExecutor.py:57:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
+test/testMoveExecutor.py:68:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
+test/testMoveExecutor.py:75:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
+test/testMoveExecutor.py:84:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
+test/testMoveExecutor.py:92:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
+test/testMoveExecutor.py:100:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
+test/testMoveExecutor.py:108:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
+test/testMoveExecutor.py:119:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
+test/testMoveExecutor.py:132:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
+test/testMoveExecutor.py:156:8: W0212: Access to a protected member _Dice__available_moves of a client class (protected-access)
+************* Module test.testDiceRoller
+test/testDiceRoller.py:96:0: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:107:48: C0303: Trailing whitespace (trailing-whitespace)
+test/testDiceRoller.py:7:0: C0115: Missing class docstring (missing-class-docstring)
+test/testDiceRoller.py:101:48: W0613: Unused argument 'mock_randint' (unused-argument)
+test/testDiceRoller.py:108:48: W0613: Unused argument 'mock_randint' (unused-argument)
+************* Module test.testPlayer
+test/testPlayer.py:7:0: C0115: Missing class docstring (missing-class-docstring)
 
 -----------------------------------
 Your code has been rated at 8.05/10

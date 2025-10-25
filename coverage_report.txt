@@ -14,5 +14,6 @@ core/Player.py                23      0   100%
 core/__init__.py               0      0   100%
 pygame_ui/__init__.py          0      0   100%
 pygame_ui/pygame.py            0      0   100%
+pygame_ui/pygame_ui.py       156    156     0%   2-277
 --------------------------------------------------------
-TOTAL                        501     43    91%
+TOTAL                        657    199    70%
