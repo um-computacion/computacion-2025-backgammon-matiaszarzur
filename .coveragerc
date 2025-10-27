@@ -9,3 +9,5 @@ omit =
     Test_*  
     */Test_*
     **/Test_*
+    pygame_ui/*
+    */pygame_ui/*

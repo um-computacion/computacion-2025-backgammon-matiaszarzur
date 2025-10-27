@@ -127,6 +127,28 @@ class TableroRenderer:
             pygame.draw.circle(self.__screen, color, (x_centro, y_ficha), radio)
             pygame.draw.circle(self.__screen, (0, 0, 0), (x_centro, y_ficha), radio, 2)
     
+    def obtener_punto_clickeado(self, pos_mouse):
+        """Detecta en qué punto se hizo click."""
+        mouse_x, mouse_y = pos_mouse
+        
+        # Verificar cada triángulo
+        for i in range(24):
+            x_base, y_base = self.obtener_posicion_triangulo(i)
+            es_superior = i < 12
+            
+            # Verificar si el click está dentro del rectángulo del triángulo
+            if x_base <= mouse_x <= x_base + TRIANGLE_WIDTH:
+                if es_superior:
+                    # Triángulo superior
+                    if y_base <= mouse_y <= y_base + TRIANGLE_HEIGHT:
+                        return i
+                else:
+                    # Triángulo inferior
+                    if y_base - TRIANGLE_HEIGHT <= mouse_y <= y_base:
+                        return i
+        
+        return None
+    
     def resaltar_punto(self, punto_index):
         """Resalta un punto con un borde más grueso."""
         x, y = self.obtener_posicion_triangulo(punto_index)

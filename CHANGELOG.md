@@ -105,3 +105,9 @@ Se implementaron las siguientes funciones en el pygame:
 - Agrega sistema de resaltado visual de puntos seleccionados
 ## [27-10-2025] V 0.2.2
 Se refactorizaron los archivos de pygame_ui para cumplir con los principios SOLID
+Se implementaron las siguientes funciones en el pygame:
+- Crea TableroRenderer: responsable solo del renderizado del tablero
+- Crea DadosRenderer: responsable solo del renderizado de dados
+- pygame_ui.py ahora coordina y delega responsabilidades
+- Reduce acoplamiento entre componentes
+- Agrega funcionalidad de lanzar dados con tecla ESPACIO
