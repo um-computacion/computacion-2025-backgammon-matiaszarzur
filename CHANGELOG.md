@@ -103,3 +103,5 @@ Se implementaron las siguientes funciones en el pygame:
 - Agrega numeracion de puntos (1-24) para mejor usabilidad
 - Implementa deteccion de clicks en triangulos
 - Agrega sistema de resaltado visual de puntos seleccionados
+## [27-10-2025] V 0.2.2
+Se refactorizaron los archivos de pygame_ui para cumplir con los principios SOLID
