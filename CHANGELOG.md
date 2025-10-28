@@ -111,3 +111,10 @@ Se implementaron las siguientes funciones en el pygame:
 - pygame_ui.py ahora coordina y delega responsabilidades
 - Reduce acoplamiento entre componentes
 - Agrega funcionalidad de lanzar dados con tecla ESPACIO
+## [28-10-2025] V 0.2.3
+Agrego panel de informacion del turno en Pygame.
+Se implementaron las siguientes funciones en el pygame:
+    - Clase InfoPanel para mostrar estado del juego
+    - Muestra jugador actual, color y movimientos disponibles
+    - Instrucciones de controles en pantalla
+    - Panel lateral derecho integrado al tablero

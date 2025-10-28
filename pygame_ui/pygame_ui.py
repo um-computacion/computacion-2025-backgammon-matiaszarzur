@@ -4,6 +4,7 @@ import sys
 from core.BackgammonGame import BackgammonGame
 from pygame_ui.tablero_renderer import TableroRenderer
 from pygame_ui.dados_renderer import DadosRenderer
+from pygame_ui.info_panel import InfoPanel
 
 # constantes
 WIDTH = 1200
@@ -25,6 +26,7 @@ def main():
     # Crear renderizadores (aplicando SRP)
     tablero_renderer = TableroRenderer(screen, game)
     dados_renderer = DadosRenderer(screen, game)
+    info_panel = InfoPanel(screen, game)
     
     punto_seleccionado = None
     
@@ -48,6 +50,7 @@ def main():
         # Renderizar (delegando responsabilidades)
         tablero_renderer.dibujar_tablero_completo()
         dados_renderer.dibujar_dados()
+        info_panel.dibujar_info_turno()
         
         # Resaltar punto seleccionado
         if punto_seleccionado is not None:
