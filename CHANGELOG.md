@@ -111,3 +111,21 @@ Se implementaron las siguientes funciones en el pygame:
 - pygame_ui.py ahora coordina y delega responsabilidades
 - Reduce acoplamiento entre componentes
 - Agrega funcionalidad de lanzar dados con tecla ESPACIO
+## [28-10-2025] V 0.2.3
+Agrego panel de informacion del turno en Pygame.
+Se implementaron las siguientes funciones en el pygame:
+    - Clase InfoPanel para mostrar estado del juego
+    - Muestra jugador actual, color y movimientos disponibles
+    - Instrucciones de controles en pantalla
+    - Panel lateral derecho integrado al tablero
+Correcciones de bugs:
+    - Bug de cambio de turno: Corregido usando last_raw_roll en lugar de last_roll
+    - Bug de verificación de fichas: Actualizado para comprobar el color de todas las fichas del punto
+    - Bug de capturas: Implementada lógica completa para capturar fichas enemigas (blots) y envío a la barra
+
+Mejoras implementadas:
+    - Visualización de la barra central con fichas capturadas
+    - Contador de fichas apiladas cuando hay más de 5 en un punto
+    - Pantalla inicial para ingresar nombres de jugadores (PantallaInicio)
+    - Sistema de mensajes en pantalla con colores según tipo (error/info/estado)
+    - Renderizado mejorado del tablero con soporte para barra
