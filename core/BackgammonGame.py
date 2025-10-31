@@ -8,7 +8,6 @@ from core.ColorFicha import ColorFicha
 
 class BackgammonGame:
     """Coordina el flujo del juego de backgammon."""
-    
     def __init__(self, player1_name: str, player2_name: str):
         """Inicializar juego con dos jugadores.
         
@@ -110,7 +109,6 @@ class BackgammonGame:
 
         self.__dice.clear_roll()
         self.__current_player_index = 1 - self.__current_player_index
-    
     def set_winner(self, player):
         """Establecer el ganador y finalizar el juego.
         
@@ -121,7 +119,6 @@ class BackgammonGame:
             raise ValueError("El jugador no pertenece a esta partida")
         self.__winner = player
         self.__game_over = True
-    
     def reset_game(self):
         """Reiniciar el juego a su estado inicial."""
         self.__board = Board()
@@ -132,7 +129,6 @@ class BackgammonGame:
         self.__winner = None
         self.__fichas_fuera_blancas = 0
         self.__fichas_fuera_negras = 0
-    
     def puede_hacer_bear_off(self, color):
         """Verificar si un jugador puede hacer bear off (sacar fichas).
         
@@ -149,22 +145,19 @@ class BackgammonGame:
         # No puede hacer bear off si tiene fichas en la barra
         if self.__board.contar_fichas_contenedor(color) > 0:
             return False
-        
         if color == ColorFicha.BLANCA:
             home_range = range(0, 6)
             outside_home_range = range(6, 24)
         else:
             home_range = range(18, 24)
             outside_home_range = range(0, 18)
-        
         # Verificar que NO hay fichas fuera del home
         for punto in outside_home_range:
             fichas = self.__board.obtener_fichas(punto)
             if fichas and fichas[0].color == color:
                 return False
-        
         return True
-    
+
     def bear_off_ficha(self, color):
         """Sacar una ficha del tablero (bear off).
         
@@ -184,7 +177,7 @@ class BackgammonGame:
             if self.__fichas_fuera_negras == 15:
                 self.set_winner(self.current_player)
                 return True
-        
+
         return False
     
     def tiene_fichas_en_barra(self, color):
@@ -197,3 +190,36 @@ class BackgammonGame:
             bool: True si tiene fichas en la barra
         """
         return self.__board.contar_fichas_contenedor(color) > 0
+    
+    def hay_reentry_posible(self, color):
+        """Verificar si hay al menos un punto de entrada posible desde la barra."""
+        if not self.tiene_fichas_en_barra(color):
+            return True  # No hay fichas en barra, no aplica
+        dados = list(self.__dice.last_roll)
+        if color == ColorFicha.BLANCA:
+            # Blancas entran por 18-23
+            for dado in dados:
+                punto_entrada = 24 - dado
+                if 18 <= punto_entrada <= 23:
+                    fichas = self.__board.obtener_fichas(punto_entrada)
+                    # Puede entrar si: vacío, propias, o 1 enemiga
+                    if not fichas:
+                        return True
+                    if fichas[0].color == color:
+                        return True
+                    if len(fichas) == 1:
+                        return True
+        else:
+            # Negras entran por 0-5
+            for dado in dados:
+                punto_entrada = dado - 1
+                if 0 <= punto_entrada <= 5:
+                    fichas = self.__board.obtener_fichas(punto_entrada)
+                    # Puede entrar si: vacío, propias, o 1 enemiga
+                    if not fichas:
+                        return True
+                    if fichas[0].color == color:
+                        return True
+                    if len(fichas) == 1:
+                        return True
+        return False

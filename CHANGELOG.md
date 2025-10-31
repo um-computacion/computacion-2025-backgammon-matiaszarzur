@@ -140,10 +140,11 @@ Mejoras implementadas:
 - bear_off_ficha() con detección automática de victoria
 - tiene_fichas_en_barra() para validaciones
 - contadores fichas_fuera_blancas y fichas_fuera_negras
+- hay_reentry_posible() para detectar puntos de entrada bloqueados
 
 INTERFAZ (pygame_ui/):
 - input_handler.py para usar métodos del CORE
-- tablero_renderer.py para consultar datos del CORE
+- Actualizacion de tablero_renderer.py para consultar datos del CORE
 - pygame_ui.py para verificar victoria desde el CORE
 - pantalla_victoria.py para fin de juego
 - Correccion re-entry

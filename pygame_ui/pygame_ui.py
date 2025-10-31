@@ -77,6 +77,11 @@ def main():
                     if event.key == pygame.K_SPACE:
                         mensaje = input_handler.lanzar_dados()
                         print(mensaje)
+                        # Verificar si hay fichas en barra sin entrada posible
+                        fin_turno_barra = input_handler.verificar_fin_turno()
+                        if fin_turno_barra and "turno perdido" in fin_turno_barra.lower():
+                            mensaje = fin_turno_barra
+                            print(fin_turno_barra)
                     elif event.key == pygame.K_ESCAPE:
                         input_handler.cancelar_seleccion()
                         mensaje = "Selección cancelada"

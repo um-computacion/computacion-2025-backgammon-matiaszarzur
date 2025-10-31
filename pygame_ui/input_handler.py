@@ -124,7 +124,8 @@ class InputHandler:
         if color == ColorFicha.BLANCA:
             if not (18 <= punto_destino <= 23):
                 return "Las blancas entran por los puntos 19-24"
-            # Dado necesario: punto 18→dado 6, punto 19→dado 5, ..., punto 23→dado 1
+            # Dado necesario: punto 23→dado 1, punto 22→dado 2, ..., punto 18→dado 6
+            # Vienen del "punto 24 imaginario": dado = 24 - punto
             dado_necesario = 24 - punto_destino
         # NEGRAS entran por HOME de BLANCAS (puntos 0-5)
         else:
@@ -233,8 +234,8 @@ class InputHandler:
             
             # Obtener contador del CORE
             fichas_fuera = (self.__game.fichas_fuera_blancas 
-                if ficha.color == ColorFicha.BLANCA 
-                else self.__game.fichas_fuera_negras)
+                          if ficha.color == ColorFicha.BLANCA 
+                          else self.__game.fichas_fuera_negras)
             
             if victoria:
                 return f"¡Ficha sacada! ({fichas_fuera}/15) - ¡VICTORIA!"
@@ -319,7 +320,21 @@ class InputHandler:
             return f"Error en captura: {str(e)}"
     
     def verificar_fin_turno(self):
-        """Verifica si el turno debe terminar (llama al CORE)."""
+        """Verifica si el turno debe terminar (llama al CORE).
+        
+        También verifica si no hay movimientos posibles desde la barra.
+        """
+        # CORE: Verificar si hay fichas en barra sin movimientos posibles
+        if self.__game.tiene_fichas_en_barra(self.__game.current_player.color):
+            if self.__game.dice.last_raw_roll:
+                # CORE: Verificar si hay entrada posible
+                if not self.__game.hay_reentry_posible(self.__game.current_player.color):
+                    jugador_anterior = self.__game.current_player.nombre
+                    # CORE: Terminar turno
+                    self.__game.end_turn()
+                    return f"❌ No hay entrada posible desde la barra. Turno perdido. Turno de {self.__game.current_player.nombre}"
+        
+        # Verificar fin normal de turno
         if self.__game.dice.last_raw_roll and self.__game.dice.get_moves_remaining() == 0:
             jugador_anterior = self.__game.current_player.nombre
             # CORE: Terminar turno
