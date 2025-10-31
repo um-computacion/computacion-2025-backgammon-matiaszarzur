@@ -129,3 +129,7 @@ Mejoras implementadas:
     - Pantalla inicial para ingresar nombres de jugadores (PantallaInicio)
     - Sistema de mensajes en pantalla con colores según tipo (error/info/estado)
     - Renderizado mejorado del tablero con soporte para barra
+
+  ## [28-10-2025] V 0.2.4
+
+  Se modificaron los test del CLI con lo visto en la clase del 28/10
