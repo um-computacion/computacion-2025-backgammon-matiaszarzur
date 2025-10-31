@@ -6,9 +6,9 @@
 
 ![Version](https://img.shields.io/badge/version-x.x.x-green) #actualizar version final
 
-![Pylint](https://img.shields.io/badge/pylint-8.05%2F10-brightgreen)
+![Pylint](https://img.shields.io/badge/pylint-7.85%2F10-yellow)
 
-![Coverage](https://img.shields.io/badge/coverage-91%25-brightgreen)
+![Coverage](https://img.shields.io/badge/coverage-84%25-yellow)
 
 ## Información del Estudiante
 - **Nombre:** Matías Zarzur
