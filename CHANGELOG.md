@@ -133,3 +133,18 @@ Mejoras implementadas:
   ## [28-10-2025] V 0.2.4
 
   Se modificaron los test del CLI con lo visto en la clase del 28/10
+
+  Se corrigieron ciertos aspectos para el correcto funcionamiento del programa:
+  CORE (BackgammonGame.py):
+- puede_hacer_bear_off() para validar reglas
+- bear_off_ficha() con detección automática de victoria
+- tiene_fichas_en_barra() para validaciones
+- contadores fichas_fuera_blancas y fichas_fuera_negras
+
+INTERFAZ (pygame_ui/):
+- input_handler.py para usar métodos del CORE
+- tablero_renderer.py para consultar datos del CORE
+- pygame_ui.py para verificar victoria desde el CORE
+- pantalla_victoria.py para fin de juego
+- Correccion re-entry
+- Correccion superposición de triángulos con barra y bear off
