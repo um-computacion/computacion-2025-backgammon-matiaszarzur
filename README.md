@@ -16,7 +16,7 @@
 - **Carrera:** Ingeniería en Informática
 
 ## Descripción del Proyecto
-Implementación completa del juego Backgammon desarrollado en Python como proyecto académico. El juego incluye todas las reglas tradicionales del Backgammon con interfaz de línea de comandos, sistema de colores, manejo de dados y validación completa de movimientos.
+Implementación completa del juego Backgammon desarrollado en Python como proyecto académico. El juego incluye todas las reglas tradicionales del Backgammon con interfaz de línea de comandos, manejo de dados y validación completa de movimientos.
 
 ## Características
 - 🎲 Sistema completo de dados con lógica de dobles
@@ -25,10 +25,10 @@ Implementación completa del juego Backgammon desarrollado en Python como proyec
 - 👥 Sistema de jugadores con turnos alternados
 - 🏁 Detección automática de condiciones de victoria
 - ✅ Tests exhaustivos para todas las funcionalidades
--📊 Análisis de cobertura de código superior al 90%
--🔍 Análisis estático con Pylint
--🤖 CI/CD automatizado con GitHub Actions
--📝 Reportes automatizados de calidad de código
+- 📊 Análisis de cobertura de código superior al 90%
+- 🔍 Análisis estático con Pylint
+- 🤖 CI/CD automatizado con GitHub Actions
+- 📝 Reportes automatizados de calidad de código
 
 ## Estructura del Proyecto
 ```
