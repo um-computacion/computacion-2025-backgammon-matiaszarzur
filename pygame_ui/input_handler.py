@@ -131,8 +131,8 @@ class InputHandler:
         else:
             if not (0 <= punto_destino <= 5):
                 return "Las negras entran por los puntos 1-6"
-            # Dado necesario: punto 0→dado 6, punto 1→dado 5, ..., punto 5→dado 1
-            dado_necesario = 6 - punto_destino
+            # Las negras avanzan: dado = punto + 1
+            dado_necesario = punto_destino + 1
         
         # Verificar dado disponible
         movimientos = list(self.__game.dice.last_roll)
