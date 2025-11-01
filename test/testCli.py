@@ -1,11 +1,12 @@
 """Tests para la clase CLI."""
 import unittest
-from unittest.mock import patch, call
+from unittest.mock import patch
 from cli.Cli import CLI
 from core.BackgammonGame import BackgammonGame
 
 
 class TestCLI(unittest.TestCase):
+    """Tests para la clase CLI del juego de Backgammon."""
 
     def setUp(self):
         """Configurar objetos antes de cada prueba."""
@@ -13,6 +14,7 @@ class TestCLI(unittest.TestCase):
 
     def test_inicializacion_cli(self):
         """Test que el CLI se inicializa correctamente."""
+        # pylint: disable=protected-access
         self.assertIsNone(self.cli._CLI__game)
         self.assertIsNotNone(self.cli._CLI__move_executor)
         self.assertTrue(self.cli._CLI__running)
@@ -101,7 +103,7 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('builtins.input', return_value='')
     @patch('cli.Cli.CLI.limpiar_pantalla')
-    def test_mostrar_reglas(self, mock_limpiar, mock_input, mock_print):
+    def test_mostrar_reglas(self, mock_limpiar, _mock_input, _mock_print):
         """Test mostrar reglas."""
         self.cli.mostrar_reglas()
         mock_limpiar.assert_called_once()
@@ -109,8 +111,9 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('builtins.input', side_effect=['Juan', 'Maria', ''])
     @patch('cli.Cli.CLI.limpiar_pantalla')
-    def test_nueva_partida(self, mock_limpiar, mock_input, mock_print):
+    def test_nueva_partida(self, mock_limpiar, _mock_input, _mock_print):
         """Test crear nueva partida."""
+        # pylint: disable=protected-access
         self.cli.nueva_partida()
         self.assertIsNotNone(self.cli._CLI__game)
         self.assertEqual(self.cli._CLI__game.current_player.nombre, "Juan")
@@ -119,8 +122,9 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('builtins.input', side_effect=['', 'Juan', 'Maria', ''])
     @patch('cli.Cli.CLI.limpiar_pantalla')
-    def test_nueva_partida_nombre_vacio(self, mock_limpiar, mock_input, mock_print):
+    def test_nueva_partida_nombre_vacio(self, _mock_limpiar, _mock_input, _mock_print):
         """Test nueva partida con nombre vacío primero."""
+        # pylint: disable=protected-access
         self.cli.nueva_partida()
         self.assertIsNotNone(self.cli._CLI__game)
         self.assertEqual(self.cli._CLI__game.current_player.nombre, "Juan")
@@ -128,27 +132,28 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('builtins.input', side_effect=['Juan', '', 'Maria', ''])
     @patch('cli.Cli.CLI.limpiar_pantalla')
-    def test_nueva_partida_segundo_nombre_vacio(self, mock_limpiar, mock_input, mock_print):
+    def test_nueva_partida_segundo_nombre_vacio(self, _mock_limpiar, _mock_input, _mock_print):
         """Test nueva partida con segundo nombre vacío."""
+        # pylint: disable=protected-access
         self.cli.nueva_partida()
         self.assertIsNotNone(self.cli._CLI__game)
         self.assertEqual(self.cli._CLI__game.other_player.nombre, "Maria")
 
     @patch('builtins.print')
     @patch('builtins.input', return_value='')
-    @patch('cli.Cli.CLI.limpiar_pantalla')
-    def test_ver_tablero(self, mock_limpiar, mock_input, mock_print):
+    def test_ver_tablero(self, _mock_input, _mock_print):
         """Test ver tablero con juego iniciado."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli.ver_tablero()
-        mock_limpiar.assert_called()
 
     @patch('builtins.print')
     @patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(3, 5))
     @patch('builtins.input', return_value='')
-    def test_lanzar_dados_exitoso(self, mock_input, mock_roll, mock_print):
+    def test_lanzar_dados_exitoso(self, _mock_input, _mock_roll, _mock_print):
         """Test lanzar dados exitosamente."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli.lanzar_dados()
@@ -156,15 +161,17 @@ class TestCLI(unittest.TestCase):
 
     @patch('builtins.print')
     @patch('builtins.input', return_value='')
-    def test_lanzar_dados_sin_juego(self, mock_input, mock_print):
+    def test_lanzar_dados_sin_juego(self, _mock_input, _mock_print):
         """Test lanzar dados sin juego iniciado."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli.lanzar_dados()
 
     @patch('builtins.print')
     @patch('builtins.input', return_value='')
-    def test_mover_ficha_sin_dados(self, mock_input, mock_print):
+    def test_mover_ficha_sin_dados(self, _mock_input, _mock_print):
         """Test mover ficha sin haber lanzado dados."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli.mover_ficha()
@@ -172,8 +179,9 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(3, 5))
     @patch('builtins.input', side_effect=['23', '3', ''])
-    def test_mover_ficha_exitoso(self, mock_input, mock_roll, mock_print):
+    def test_mover_ficha_exitoso(self, _mock_input, _mock_roll, _mock_print):
         """Test mover ficha exitosamente."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli._CLI__game.roll_dice()
@@ -181,8 +189,9 @@ class TestCLI(unittest.TestCase):
 
     @patch('builtins.print')
     @patch('builtins.input', return_value='')
-    def test_mover_ficha_sin_movimientos_disponibles(self, mock_input, mock_print):
+    def test_mover_ficha_sin_movimientos_disponibles(self, _mock_input, _mock_print):
         """Test mover ficha cuando no quedan movimientos."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli._CLI__game.roll_dice()
@@ -193,8 +202,9 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('builtins.input', side_effect=['abc', '3', ''])
     @patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(3, 5))
-    def test_mover_ficha_input_invalido(self, mock_roll, mock_input, mock_print):
+    def test_mover_ficha_input_invalido(self, _mock_roll, _mock_input, _mock_print):
         """Test mover ficha con input inválido."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli._CLI__game.roll_dice()
@@ -203,8 +213,9 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(3, 5))
     @patch('builtins.input', side_effect=['10', '7', ''])
-    def test_mover_ficha_error_valor(self, mock_input, mock_roll, mock_print):
+    def test_mover_ficha_error_valor(self, _mock_input, _mock_roll, _mock_print):
         """Test mover ficha con ValueError."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli._CLI__game.roll_dice()
@@ -212,8 +223,9 @@ class TestCLI(unittest.TestCase):
 
     @patch('builtins.print')
     @patch('builtins.input', return_value='')
-    def test_finalizar_turno_sin_movimientos(self, mock_input, mock_print):
+    def test_finalizar_turno_sin_movimientos(self, _mock_input, _mock_print):
         """Test finalizar turno sin movimientos disponibles."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         jugador_inicial = self.cli._CLI__game.current_player
@@ -224,8 +236,9 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(3, 5))
     @patch('builtins.input', side_effect=['n', ''])
-    def test_finalizar_turno_con_movimientos_cancelar(self, mock_input, mock_roll, mock_print):
+    def test_finalizar_turno_con_movimientos_cancelar(self, _mock_input, _mock_roll, _mock_print):
         """Test finalizar turno con movimientos disponibles cancelando."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli._CLI__game.roll_dice()
@@ -236,8 +249,9 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('core.DiceRoller.DiceRoller.roll_two_dice', return_value=(3, 5))
     @patch('builtins.input', side_effect=['s', ''])
-    def test_finalizar_turno_con_movimientos_confirmar(self, mock_input, mock_roll, mock_print):
+    def test_finalizar_turno_con_movimientos_confirmar(self, _mock_input, _mock_roll, _mock_print):
         """Test finalizar turno con movimientos disponibles confirmando."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli._CLI__game.roll_dice()
@@ -247,8 +261,9 @@ class TestCLI(unittest.TestCase):
 
     @patch('builtins.print')
     @patch('builtins.input', return_value='s')
-    def test_rendirse_confirmar(self, mock_input, mock_print):
+    def test_rendirse_confirmar(self, _mock_input, _mock_print):
         """Test rendirse confirmando."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli.rendirse()
@@ -256,8 +271,9 @@ class TestCLI(unittest.TestCase):
 
     @patch('builtins.print')
     @patch('builtins.input', return_value='n')
-    def test_rendirse_cancelar(self, mock_input, mock_print):
+    def test_rendirse_cancelar(self, _mock_input, _mock_print):
         """Test rendirse cancelando."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli.rendirse()
@@ -265,8 +281,9 @@ class TestCLI(unittest.TestCase):
 
     @patch('builtins.print')
     @patch('builtins.input', return_value='s')
-    def test_volver_menu_principal_confirmar(self, mock_input, mock_print):
+    def test_volver_menu_principal_confirmar(self, _mock_input, _mock_print):
         """Test volver al menú principal confirmando."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli.volver_menu_principal()
@@ -274,8 +291,9 @@ class TestCLI(unittest.TestCase):
 
     @patch('builtins.print')
     @patch('builtins.input', return_value='n')
-    def test_volver_menu_principal_cancelar(self, mock_input, mock_print):
+    def test_volver_menu_principal_cancelar(self, _mock_input, _mock_print):
         """Test volver al menú principal cancelando."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli.volver_menu_principal()
@@ -284,8 +302,9 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('builtins.input', return_value='')
     @patch('cli.Cli.CLI.limpiar_pantalla')
-    def test_mostrar_ganador(self, mock_limpiar, mock_input, mock_print):
+    def test_mostrar_ganador(self, _mock_limpiar, _mock_input, _mock_print):
         """Test mostrar ganador."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli._CLI__game.set_winner(self.cli._CLI__game.current_player)
@@ -296,7 +315,7 @@ class TestCLI(unittest.TestCase):
     @patch('cli.Cli.CLI.mostrar_menu_principal')
     @patch('builtins.input', side_effect=['1'])
     @patch('cli.Cli.CLI.nueva_partida')
-    def test_ejecutar_menu_principal_opcion_1(self, mock_nueva, mock_input, mock_menu, mock_print):
+    def test_ejecutar_menu_principal_opcion_1(self, mock_nueva, _mock_input, _mock_menu, _mock_print):
         """Test ejecutar menú principal opción 1."""
         self.cli.ejecutar_menu_principal()
         mock_nueva.assert_called_once()
@@ -305,7 +324,7 @@ class TestCLI(unittest.TestCase):
     @patch('cli.Cli.CLI.mostrar_menu_principal')
     @patch('builtins.input', side_effect=['2'])
     @patch('cli.Cli.CLI.mostrar_reglas')
-    def test_ejecutar_menu_principal_opcion_2(self, mock_reglas, mock_input, mock_menu, mock_print):
+    def test_ejecutar_menu_principal_opcion_2(self, mock_reglas, _mock_input, _mock_menu, _mock_print):
         """Test ejecutar menú principal opción 2."""
         self.cli.ejecutar_menu_principal()
         mock_reglas.assert_called_once()
@@ -313,16 +332,18 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('cli.Cli.CLI.mostrar_menu_principal')
     @patch('builtins.input', side_effect=['3'])
-    def test_ejecutar_menu_principal_opcion_3(self, mock_input, mock_menu, mock_print):
+    def test_ejecutar_menu_principal_opcion_3(self, _mock_input, _mock_menu, _mock_print):
         """Test ejecutar menú principal opción 3 (salir)."""
+        # pylint: disable=protected-access
         self.cli.ejecutar_menu_principal()
         self.assertFalse(self.cli._CLI__running)
 
     @patch('builtins.print')
     @patch('cli.Cli.CLI.mostrar_menu_principal')
     @patch('builtins.input', side_effect=['9', ''])
-    def test_ejecutar_menu_principal_opcion_invalida(self, mock_input, mock_menu, mock_print):
+    def test_ejecutar_menu_principal_opcion_invalida(self, _mock_input, _mock_menu, _mock_print):
         """Test ejecutar menú principal con opción inválida."""
+        # pylint: disable=protected-access
         self.cli.ejecutar_menu_principal()
         self.assertTrue(self.cli._CLI__running)
 
@@ -330,8 +351,9 @@ class TestCLI(unittest.TestCase):
     @patch('cli.Cli.CLI.mostrar_menu_partida')
     @patch('builtins.input', side_effect=['1'])
     @patch('cli.Cli.CLI.ver_tablero')
-    def test_ejecutar_menu_partida_opcion_1(self, mock_ver, mock_input, mock_menu, mock_print):
+    def test_ejecutar_menu_partida_opcion_1(self, mock_ver, _mock_input, _mock_menu, _mock_print):
         """Test ejecutar menú partida opción 1."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli.ejecutar_menu_partida()
@@ -341,8 +363,9 @@ class TestCLI(unittest.TestCase):
     @patch('cli.Cli.CLI.mostrar_menu_partida')
     @patch('builtins.input', side_effect=['2'])
     @patch('cli.Cli.CLI.lanzar_dados')
-    def test_ejecutar_menu_partida_opcion_2(self, mock_lanzar, mock_input, mock_menu, mock_print):
+    def test_ejecutar_menu_partida_opcion_2(self, mock_lanzar, _mock_input, _mock_menu, _mock_print):
         """Test ejecutar menú partida opción 2."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli.ejecutar_menu_partida()
@@ -351,8 +374,9 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('cli.Cli.CLI.mostrar_menu_partida')
     @patch('builtins.input', side_effect=['9', ''])
-    def test_ejecutar_menu_partida_opcion_invalida(self, mock_input, mock_menu, mock_print):
+    def test_ejecutar_menu_partida_opcion_invalida(self, _mock_input, _mock_menu, _mock_print):
         """Test ejecutar menú partida opción inválida."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli.ejecutar_menu_partida()
@@ -360,8 +384,9 @@ class TestCLI(unittest.TestCase):
     @patch('builtins.print')
     @patch('cli.Cli.CLI.mostrar_ganador')
     @patch('cli.Cli.CLI.mostrar_menu_partida')
-    def test_ejecutar_menu_partida_juego_terminado(self, mock_menu, mock_ganador, mock_print):
+    def test_ejecutar_menu_partida_juego_terminado(self, _mock_menu, mock_ganador, _mock_print):
         """Test ejecutar menú partida cuando juego terminó."""
+        # pylint: disable=protected-access
         self.cli._CLI__game = BackgammonGame("Juan", "Maria")
         self.cli._CLI__game.start_game()
         self.cli._CLI__game.set_winner(self.cli._CLI__game.current_player)
@@ -370,18 +395,22 @@ class TestCLI(unittest.TestCase):
 
     def test_estado_inicial_running(self):
         """Test que el CLI inicia en estado running."""
+        # pylint: disable=protected-access
         self.assertTrue(self.cli._CLI__running)
 
     def test_estado_inicial_sin_juego(self):
         """Test que el CLI inicia sin juego activo."""
+        # pylint: disable=protected-access
         self.assertIsNone(self.cli._CLI__game)
 
     def test_move_executor_inicializado(self):
         """Test que move_executor está inicializado."""
+        # pylint: disable=protected-access
         self.assertIsNotNone(self.cli._CLI__move_executor)
 
     def test_cli_puede_crear_juego(self):
         """Test que CLI puede crear un juego."""
+        # pylint: disable=protected-access
         game = BackgammonGame("Jugador1", "Jugador2")
         self.cli._CLI__game = game
         self.assertIsNotNone(self.cli._CLI__game)

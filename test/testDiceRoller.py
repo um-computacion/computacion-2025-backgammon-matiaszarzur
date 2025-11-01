@@ -93,7 +93,7 @@ class TestDiceRoller(unittest.TestCase):
             results.append(result)
             self.assertIsInstance(result, tuple)
             self.assertEqual(len(result), 2)
-        
+
         # Verificar que obtuvimos resultados (aunque podrían ser iguales por casualidad)
         self.assertEqual(len(results), 10)
 
@@ -104,7 +104,7 @@ class TestDiceRoller(unittest.TestCase):
 
         self.assertEqual(result, (1, 1))
 
-    @patch('random.randint', side_effect=[6, 6])  
+    @patch('random.randint', side_effect=[6, 6])
     def test_roll_two_dice_maximum_double(self, mock_randint):
         """Test roll con el valor máximo doble (6,6)."""
         result = DiceRoller.roll_two_dice()

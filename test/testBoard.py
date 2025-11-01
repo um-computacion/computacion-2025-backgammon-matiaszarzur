@@ -99,7 +99,7 @@ class TestBoard(unittest.TestCase):
         self.assertEqual(len(self.tablero.puntos), 24)
         self.assertEqual(self.tablero.puntos[0][0].color, ColorFicha.BLANCA)
         self.assertEqual(len(self.tablero.puntos[0]), 1)
-    
+
     def test_setter_puntos_lista_invalida_longitud(self):
         with self.assertRaises(ValueError) as context:
             self.tablero.puntos = [[] for _ in range(23)]
@@ -114,7 +114,7 @@ class TestBoard(unittest.TestCase):
         nuevo_contenedor = [self.ficha_blanca]
         self.tablero.contenedor_blancas = nuevo_contenedor
         self.assertEqual(self.tablero.contenedor_blancas, nuevo_contenedor)
-    
+
     def test_setter_contenedor_negras_valido(self):
         nuevas_fichas = [self.ficha_negra]
         self.tablero.contenedor_negras = nuevas_fichas
@@ -164,17 +164,17 @@ class TestBoard(unittest.TestCase):
         self.tablero.quitar_ficha(10)
         color_despues = self.tablero.obtener_color_punto(10)
         self.assertIsNone(color_despues)
-    
+
     def test_setter_puntos_tipo_incorrecto(self):
         with self.assertRaises(ValueError) as context:
             self.tablero.puntos = "esto no es una lista"
         self.assertEqual(str(context.exception), "Los nuevos puntos deben ser una lista de 24 elementos.")
-    
+
     def test_setter_contenedor_blancas_tipo_incorrecto(self):
         with self.assertRaises(ValueError) as context:
             self.tablero.contenedor_blancas = "esto no es una lista"
         self.assertEqual(str(context.exception), "El nuevo contenedor debe ser una lista.")
-        
+
     def test_setter_contenedor_negras_tipo_incorrecto(self):
         with self.assertRaises(ValueError) as context:
             self.tablero.contenedor_negras = 12345
@@ -209,11 +209,11 @@ class TestBoard(unittest.TestCase):
         # Test con punto negativo
         result = self.tablero.limpiar_punto(-1)
         self.assertEqual(result, [])
-    
+
         # Test con punto mayor a 23
         result = self.tablero.limpiar_punto(25)
         self.assertEqual(result, [])
-    
+
         # Test con punto muy grande
         result = self.tablero.limpiar_punto(100)
         self.assertEqual(result, [])

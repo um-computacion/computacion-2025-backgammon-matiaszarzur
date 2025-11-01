@@ -149,3 +149,6 @@ INTERFAZ (pygame_ui/):
 - pantalla_victoria.py para fin de juego
 - Correccion re-entry
 - Correccion superposición de triángulos con barra y bear off
+  ## [28-10-2025] V 0.2.5
+  Se añadieron test de backgammongame para mejorar el coverage del proyecto
+  se modificaron otros aspectos para mejorar la valoracion del codigo
