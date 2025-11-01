@@ -29,47 +29,47 @@ class BackgammonGame:
         # Contadores de bear off
         self.__fichas_fuera_blancas = 0
         self.__fichas_fuera_negras = 0
-    
+
     @property
     def board(self):
         """Obtener el tablero del juego."""
         return self.__board
-    
+
     @property
     def dice(self):
         """Obtener los dados del juego."""
         return self.__dice
-    
+
     @property
     def current_player(self):
         """Obtener el jugador actual."""
         return self.__players[self.__current_player_index]
-    
+
     @property
     def other_player(self):
         """Obtener el otro jugador."""
         return self.__players[1 - self.__current_player_index]
-    
+
     @property
     def is_game_over(self):
         """Verificar si el juego ha terminado."""
         return self.__game_over
-    
+
     @property
     def winner(self):
         """Obtener el ganador del juego."""
         return self.__winner
-    
+
     @property
     def fichas_fuera_blancas(self):
         """Obtener cantidad de fichas blancas sacadas del tablero."""
         return self.__fichas_fuera_blancas
-    
+
     @property
     def fichas_fuera_negras(self):
         """Obtener cantidad de fichas negras sacadas del tablero."""
         return self.__fichas_fuera_negras
-    
+
     def start_game(self):
         """Iniciar el juego configurando el tablero."""
         BoardInitializer.inicializar_estandar(self.__board)
@@ -79,7 +79,7 @@ class BackgammonGame:
         self.__current_player_index = 0
         self.__fichas_fuera_blancas = 0
         self.__fichas_fuera_negras = 0
-    
+
     def roll_dice(self):
         """Lanzar los dados para el turno actual.
         
@@ -95,7 +95,7 @@ class BackgammonGame:
             raise RuntimeError("El juego ya ha terminado")
 
         return self.__dice.roll()
-    
+
     def end_turn(self):
         """Finalizar el turno del jugador actual y pasar al siguiente.
         
@@ -179,7 +179,7 @@ class BackgammonGame:
                 return True
 
         return False
-    
+
     def tiene_fichas_en_barra(self, color):
         """Verificar si un jugador tiene fichas en la barra.
         
@@ -190,7 +190,7 @@ class BackgammonGame:
             bool: True si tiene fichas en la barra
         """
         return self.__board.contar_fichas_contenedor(color) > 0
-    
+
     def hay_reentry_posible(self, color):
         """Verificar si hay al menos un punto de entrada posible desde la barra."""
         if not self.tiene_fichas_en_barra(color):

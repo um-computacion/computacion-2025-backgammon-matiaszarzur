@@ -140,12 +140,12 @@ class TestMoveExecutor(unittest.TestCase):
         """Test cálculo con valores extremos."""
         # Blanco desde 23 con 6
         self.assertEqual(
-            MoveExecutor.calculate_destination(23, 6, ColorFicha.BLANCA), 
+            MoveExecutor.calculate_destination(23, 6, ColorFicha.BLANCA),
             17
         )
         # Negro desde 0 con 6
         self.assertEqual(
-            MoveExecutor.calculate_destination(0, 6, ColorFicha.NEGRA), 
+            MoveExecutor.calculate_destination(0, 6, ColorFicha.NEGRA),
             6
         )
 
