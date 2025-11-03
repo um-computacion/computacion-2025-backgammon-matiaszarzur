@@ -1,0 +1,163 @@
+name: CI with Coverage
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-analyze:
+    runs-on: ubuntu-latest
+    #Evitar bucle infinito
+    if: github.actor != 'github-actions[bot]'
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          # Instalar bc para comparaciones numéricas
+          sudo apt-get update && sudo apt-get install -y bc
+      - name: Run tests and generate coverage report
+        run: |
+          coverage run -m unittest
+          coverage xml -o cobertura.xml
+          coverage report -m > coverage_report.txt
+          echo "Coverage debug info:"
+          ls -la core/
+          coverage report --show-missing
+      - name: Run Pylint and generate report
+        run: |
+          pylint --rcfile=.pylintrc core/ test/ > pylint_report.txt || true
+      
+      # Nuevo paso: Extraer métricas para badges
+      - name: Extract metrics for badges
+        run: |
+          # Extraer score de Pylint
+          PYLINT_SCORE=$(grep "Your code has been rated at" pylint_report.txt | sed 's/.*rated at \([0-9]*\.[0-9]*\).*/\1/' || echo "0.00")
+          echo "PYLINT_SCORE=$PYLINT_SCORE" >> $GITHUB_ENV
+          
+          # Extraer coverage percentage
+          COVERAGE_PERCENT=$(coverage report | grep TOTAL | awk '{print $4}' | sed 's/%//' || echo "0")
+          echo "COVERAGE_PERCENT=$COVERAGE_PERCENT" >> $GITHUB_ENV
+          
+          # Determinar color del badge según score
+          if (( $(echo "$PYLINT_SCORE >= 8.0" | bc -l) )); then
+            PYLINT_COLOR="brightgreen"
+          elif (( $(echo "$PYLINT_SCORE >= 6.0" | bc -l) )); then
+            PYLINT_COLOR="yellow"
+          else
+            PYLINT_COLOR="red"
+          fi
+          echo "PYLINT_COLOR=$PYLINT_COLOR" >> $GITHUB_ENV
+          
+          # Determinar color del coverage
+          if (( $(echo "$COVERAGE_PERCENT >= 90" | bc -l) )); then
+            COVERAGE_COLOR="brightgreen"
+          elif (( $(echo "$COVERAGE_PERCENT >= 75" | bc -l) )); then
+            COVERAGE_COLOR="yellow"
+          else
+            COVERAGE_COLOR="red"
+          fi
+          echo "COVERAGE_COLOR=$COVERAGE_COLOR" >> $GITHUB_ENV
+          
+          echo "Pylint Score: $PYLINT_SCORE"
+          echo "Coverage: $COVERAGE_PERCENT%"
+
+      - name: Generate reports file
+        run: |
+          cat << 'EOF' > generate_reports.py
+          import os
+          def read_file(filepath):
+              if not os.path.exists(filepath):
+                  return f"Error: Report file not found at {filepath}"
+              with open(filepath, "r") as f:
+                  return f.read()
+          coverage_report = read_file("coverage_report.txt")
+          pylint_report = read_file("pylint_report.txt")
+          reports_content = f"""# Automated Reports
+          ## Coverage Report
+          ```text
+          {coverage_report}
+          ```
+          ## Pylint Report
+          ```text
+          {pylint_report}
+          ```
+          """
+          with open("REPORTS.md", "w") as f:
+              f.write(reports_content)
+          EOF
+          python generate_reports.py
+
+      # Nuevo paso: Actualizar README con badges dinámicos
+      - name: Update README with dynamic badges
+        run: |
+          # Verificar que las variables estén disponibles
+          PYLINT_SCORE="${PYLINT_SCORE:-0.00}"
+          COVERAGE_PERCENT="${COVERAGE_PERCENT:-0}"
+          PYLINT_COLOR="${PYLINT_COLOR:-red}"
+          COVERAGE_COLOR="${COVERAGE_COLOR:-red}"
+          
+          # Crear nuevos badges
+          CI_BADGE="![CI Status](https://github.com/um-computacion/computacion-2025-backgammon-matiaszarzur/actions/workflows/ci.yml/badge.svg)"
+          PYTHON_BADGE="![Python](https://img.shields.io/badge/python-3.10-blue)"
+          PYLINT_BADGE="![Pylint](https://img.shields.io/badge/pylint-${PYLINT_SCORE}%2F10-${PYLINT_COLOR})"
+          COVERAGE_BADGE="![Coverage](https://img.shields.io/badge/coverage-${COVERAGE_PERCENT}%25-${COVERAGE_COLOR})"
+          
+          # Actualizar cada badge individualmente
+          sed -i "s|!\[CI Status\].*|$CI_BADGE|" README.md
+          sed -i "s|!\[Python\].*|$PYTHON_BADGE|" README.md
+          sed -i "s|!\[Pylint\].*|$PYLINT_BADGE|" README.md
+          sed -i "s|!\[Coverage\].*|$COVERAGE_BADGE|" README.md
+          
+          echo "README updated with new metrics:"
+          echo "Pylint: $PYLINT_SCORE/10"
+          echo "Coverage: $COVERAGE_PERCENT%"
+
+      - name: Create Pull Request for reports
+        if: github.ref == 'refs/heads/main'
+        id: cpr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "docs: Update automated reports and badges [skip ci]"
+          title: "📊 Update Automated Reports & Badges"
+          body: |
+            🤖 **Automated report update**
+            
+            This PR updates:
+            - 📋 REPORTS.md with latest coverage and Pylint analysis
+            - 🏷️ README.md badges with current metrics
+            
+            **Current Metrics:**
+            - 🔍 Pylint Score: Updated automatically
+            - 📊 Coverage: Updated automatically
+            
+            See the updated badges in README.md and detailed reports in REPORTS.md.
+            
+            Generated automatically by GitHub Actions.
+          branch: update-reports
+          delete-branch: true
+          base: main
+      - name: Auto-merge Pull Request
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        run: |
+          # Esperar un momento para que el PR esté completamente creado
+          sleep 5
+          # Habilitar auto-merge y mergear inmediatamente
+          gh pr merge ${{ steps.cpr.outputs.pull-request-number }} \
+            --squash \
+            --delete-branch \
+            --admin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

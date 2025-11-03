@@ -1,0 +1,16 @@
+Name                       Stmts   Miss  Cover   Missing
+--------------------------------------------------------
+cli/Cli.py                   213     40    81%   23-30, 68-89, 105, 107, 109, 111, 193, 234-235, 286-290, 295-296
+cli/__init__.py                0      0   100%
+core/BackgammonGame.py       127      0   100%
+core/Board.py                 92      0   100%
+core/BoardInitializer.py      23      0   100%
+core/Checker.py               13      0   100%
+core/ColorFicha.py             4      0   100%
+core/Dice.py                  41      0   100%
+core/DiceRoller.py             5      0   100%
+core/MoveExecutor.py          24      0   100%
+core/Player.py                23      0   100%
+core/__init__.py               0      0   100%
+--------------------------------------------------------
+TOTAL                        565     40    93%
