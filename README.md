@@ -4,7 +4,7 @@
 
 ![Python](https://img.shields.io/badge/python-3.10-blue)
 
-![Version](https://img.shields.io/badge/version-x.x.x-green) #actualizar version final
+![Version](https://img.shields.io/badge/version-0.2.5-green)
 
 ![Pylint](https://img.shields.io/badge/pylint-8.89%2F10-brightgreen)
 
@@ -86,9 +86,9 @@ pip install -r requirements.txt
 ## Ejecución del Juego
 ```bash
 # Ejecutar el juego principal
-xx
+python -m pygame_ui.pygame_ui  
 # O ejecutar la versión CLI
-xx
+python -m cli.Cli
 ```
 
 ## Ejecución de Tests
@@ -106,9 +106,6 @@ Los reportes automatizados se generan en cada push y se encuentran en:
 - 🔍 **Pylint Analysis**: `pylint_report.txt` 
 - 📋 **Combined Report**: `REPORTS.md`
 
-**Estado actual:**
-- **Pylint Score**: 
-- **Coverage**: 
 
 Para ver los reportes más recientes, consulta el archivo `REPORTS.md` que se actualiza automáticamente con cada CI build.
 
@@ -116,4 +113,3 @@ Para ver los reportes más recientes, consulta el archivo `REPORTS.md` que se ac
 Este proyecto forma parte de las actividades académicas del ciclo lectivo 2025 para la carrera de Ingeniería en Informática, de la Universidad de Mendoza
 
 ---
-*Última actualización: xx-xx-xx*
